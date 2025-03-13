@@ -123,7 +123,20 @@
       "description": "输入你想要的美甲风格，AI立即为你生成专业美甲设计"
     },
     "gallery": {
-      "title": "最新美甲设计"
+      "title": "最新美甲设计",
+      "sortBy": "按创建时间排序",
+      "loadMore": "加载更多",
+      "loading": "加载中...",
+      "empty": "暂无美甲设计作品，快来创作第一个吧！",
+      "emptyUser": "你还没有创建过美甲设计",
+      "createFirstTip": "点击上方的生成按钮创建你的第一个设计",
+      "loginTip": "登录后即可创建你的专属美甲设计",
+      "viewOriginal": "查看原图",
+      "downloadImage": "下载图片",
+      "reloadButton": "重新加载",
+      "downloadFailure": "下载失败，请稍后重试",
+      "networkError": "网络错误，请稍后重试",
+      "fetchError": "获取设计列表失败"
     },
     "howto": {
       "title": "如何使用",

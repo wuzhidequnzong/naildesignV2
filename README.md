@@ -1,10 +1,17 @@
-# ShipAny Template One - 美甲设计生成器 v1.1.0
+# ShipAny Template One - 美甲设计生成器 v1.2.0
 
 基于ShipAny模板开发的AI美甲设计生成器，使用AI技术生成专业美甲设计图片。
 
 ![preview](preview.png)
 
 ## 版本更新历史
+
+### v1.2.0 (2024-06-15)
+- 🌐 修复美甲设计生成器组件的国际化问题，确保在不同语言环境下正确显示文本
+- 🌐 修复美甲设计展示组件的国际化问题，调整日期格式化和按钮文本
+- 🛠️ 重构NailDesignGallery和NailDesignGenerator组件的翻译处理逻辑
+- 📝 完善翻译文件，添加缺失的展示组件国际化文本
+- 🔍 优化国际化实现方案，统一Landing Page的组件翻译方式
 
 ### v1.1.0 (2025-03-09)
 - 🛠️ 修复用户登录时的水合错误问题
@@ -22,7 +29,8 @@
 - ✅ **美甲设计生成**：完成基本生成功能，修复API调用过程中的错误
 - ✅ **存储服务**：成功集成Cloudflare R2存储服务，修复凭证格式问题
 - ✅ **用户体验优化**：添加字符计数器和错误提示，提升用户输入体验
-- ⏳ **美甲设计展示**：待完成首页美甲设计展示和排序功能
+- ✅ **国际化支持**：完成美甲设计生成器和展示组件的多语言支持，修复时间格式和按钮文本的国际化问题
+- ✅ **美甲设计展示**：完成首页美甲设计展示和排序功能，添加按创建时间排序功能
 - ⏳ **主题适配**：待完成按钮和UI元素的主题色适配
 - ⏳ **权限管理**：待完成设计查看权限的优化，允许非登录用户查看设计列表
 
@@ -50,6 +58,11 @@
   - 生成器：`components/blocks/NailDesignGenerator.tsx`
   - 展示画廊：`components/blocks/NailDesignGallery.tsx`
   - 首页介绍：`components/blocks/NailDesignIntro.tsx`
+
+- **国际化**
+  - 全局翻译：`i18n/messages/[locale].json` - 包含全局UI元素的翻译
+  - 页面特定翻译：`i18n/pages/landing/[locale].json` - 包含Landing Page特定组件的翻译
+  - 国际化配置：`i18n/config.ts` - 配置支持的语言和默认语言
 
 - **页面**
   - 主页：`app/[locale]/(default)/page.tsx`
@@ -124,6 +137,7 @@ npm run cf:deploy
 - **AI**：Replicate API、black-forest-labs/flux-dev模型
 - **存储**：Cloudflare R2
 - **认证**：NextAuth.js
+- **国际化**：Next-intl、date-fns本地化
 
 ## 社区
 

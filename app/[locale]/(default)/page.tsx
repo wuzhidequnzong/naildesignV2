@@ -58,17 +58,17 @@ export default async function LandingPage({
             
             {/* 美甲设计生成器 */}
             <div className="bg-card rounded-lg border shadow-sm p-4 md:p-6">
-              <h3 className="text-xl font-semibold mb-4 md:mb-6">创建你的专属美甲设计</h3>
+              <h3 className="text-xl font-semibold mb-4 md:mb-6">{t("howto.step1.title")}</h3>
               <div className="max-w-3xl mx-auto">
-                <NailDesignGenerator />
+                <NailDesignGenerator translations={page.components?.nailDesignGenerator} />
               </div>
             </div>
             
             {/* 美甲设计展示 */}
             <div>
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-semibold">最新美甲设计作品</h3>
-                <span className="text-sm text-muted-foreground">按创建时间排序</span>
+                <h3 className="text-xl font-semibold">{t("gallery.title")}</h3>
+                <span className="text-sm text-muted-foreground">{t("gallery.sortBy", "按创建时间排序")}</span>
               </div>
               <NailDesignGallery userOnly={false} />
             </div>

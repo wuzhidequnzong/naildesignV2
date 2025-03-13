@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Download, User, RefreshCw, ExternalLink } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatDistanceToNow } from "date-fns";
-import { zhCN } from "date-fns/locale";
+import { zhCN, enUS } from "date-fns/locale";
+import { useLocale, useTranslations } from "next-intl";
 
 // 美甲设计类型定义
 interface NailDesign {
@@ -33,13 +34,19 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
   const [error, setError] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   
+  const locale = useLocale();
+  const t = useTranslations('NailDesign');
+  
+  // 日期格式化所需的语言环境
+  const dateLocale = locale === 'zh' ? zhCN : enUS;
+  
   // 获取美甲设计列表
   const fetchDesigns = async () => {
     try {
       setLoading(true);
       setError(null);
       
-      console.log(`获取${userOnly ? '用户' : '所有'}美甲设计列表...`);
+      console.log(`获取${userOnly ? '用户' : '所有'}美甲设计列表，页码:1, 每页数量:12`);
       const url = userOnly 
         ? "/api/nail-designs?user_only=true&limit=12" 
         : "/api/nail-designs?limit=12";
@@ -48,7 +55,7 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
       const data = await response.json();
       
       if (response.ok && data.designs) {
-        console.log(`成功获取${data.designs.length}个美甲设计`);
+        console.log(`成功检索到${data.designs.length}个美甲设计`);
         
         // 确保按创建时间降序排序
         const sortedDesigns = data.designs.sort((a: NailDesign, b: NailDesign) => {
@@ -62,11 +69,11 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
         setDesigns(sortedDesigns);
       } else {
         console.error('获取美甲设计列表API错误:', data.error || '未知错误');
-        setError(data.error || '获取设计列表失败');
+        setError(data.error || t('gallery.fetchError'));
       }
     } catch (error) {
       console.error("获取设计列表失败:", error);
-      setError('网络错误，请稍后重试');
+      setError(t('gallery.networkError'));
     } finally {
       setLoading(false);
       setIsRefreshing(false);
@@ -89,13 +96,15 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
       console.log(`下载图片: ${imageUrl}`);
       const link = document.createElement("a");
       link.href = imageUrl;
-      link.download = `美甲设计_${prompt.substring(0, 10)}_${Date.now()}.png`;
+      // 使用当前语言环境适合的前缀
+      const prefix = locale === 'zh' ? '美甲设计' : 'nail_design';
+      link.download = `${prefix}_${prompt.substring(0, 10)}_${Date.now()}.png`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
       console.error('下载图片失败:', error);
-      alert('下载失败，请稍后重试');
+      alert(t('gallery.downloadFailure'));
     }
   };
   
@@ -138,7 +147,7 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
           className="flex items-center gap-2"
         >
           <RefreshCw className="h-4 w-4" />
-          重新加载
+          {t('gallery.reloadButton')}
         </Button>
       </div>
     );
@@ -149,10 +158,10 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
     return (
       <div className="w-full py-12 text-center bg-muted/20 rounded-lg border border-dashed">
         <p className="text-lg text-muted-foreground mb-2">
-          {userOnly ? "你还没有创建过美甲设计" : "暂无美甲设计作品，快来创作第一个吧！"}
+          {userOnly ? t('gallery.emptyUser') : t('gallery.empty')}
         </p>
         <p className="text-sm text-muted-foreground">
-          {userOnly ? "点击上方的生成按钮创建你的第一个设计" : "登录后即可创建你的专属美甲设计"}
+          {userOnly ? t('gallery.createFirstTip') : t('gallery.loginTip')}
         </p>
       </div>
     );
@@ -185,7 +194,7 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
                   <span className="text-xs text-muted-foreground">
                     {design.created_at && formatDistanceToNow(new Date(design.created_at), { 
                       addSuffix: true, 
-                      locale: zhCN 
+                      locale: dateLocale 
                     })}
                   </span>
                 </div>
@@ -194,7 +203,7 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 rounded-full"
-                    title="查看原图"
+                    title={t('gallery.viewOriginal')}
                     onClick={() => handleOpenOriginal(design.image_url)}
                   >
                     <ExternalLink className="h-4 w-4" />
@@ -203,7 +212,7 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 rounded-full"
-                    title="下载图片"
+                    title={t('gallery.downloadImage')}
                     onClick={() => handleDownload(design.image_url, design.prompt)}
                   >
                     <Download className="h-4 w-4" />
@@ -227,7 +236,7 @@ export default function NailDesignGallery({ userOnly = false }: { userOnly?: boo
           className="flex items-center gap-2"
         >
           <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
-          {isRefreshing ? '加载中...' : '加载更多'}
+          {isRefreshing ? t('gallery.loading') : t('gallery.loadMore')}
         </Button>
       </div>
     </div>

@@ -123,7 +123,20 @@
       "description": "Enter your desired nail style, and AI will instantly create professional nail designs for you"
     },
     "gallery": {
-      "title": "Latest Nail Designs"
+      "title": "Latest Nail Designs",
+      "sortBy": "Sorted by creation time",
+      "loadMore": "Load More",
+      "loading": "Loading...",
+      "empty": "No nail designs yet. Be the first to create one!",
+      "emptyUser": "You haven't created any nail designs yet",
+      "createFirstTip": "Click the generate button above to create your first design",
+      "loginTip": "Login to create your own nail designs",
+      "viewOriginal": "View original image",
+      "downloadImage": "Download image",
+      "reloadButton": "Reload",
+      "downloadFailure": "Download failed, please try again later",
+      "networkError": "Network error, please try again later",
+      "fetchError": "Failed to fetch designs"
     },
     "howto": {
       "title": "How to Use",
