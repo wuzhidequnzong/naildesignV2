@@ -20,7 +20,7 @@ export default function Hero({ hero }: { hero: HeroType }) {
   return (
     <>
       <HeroBg />
-      <section className="py-24">
+      <section className="py-19">
         <div className="container">
           {hero.show_badge && (
             <div className="flex items-center justify-center mb-8">
@@ -62,35 +62,6 @@ export default function Hero({ hero }: { hero: HeroType }) {
               className="m mx-auto max-w-3xl text-muted-foreground lg:text-xl"
               dangerouslySetInnerHTML={{ __html: hero.description || "" }}
             />
-            {hero.buttons && (
-              <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-                {hero.buttons.map((item, i) => {
-                  return (
-                    <Link
-                      key={i}
-                      href={item.url || ""}
-                      target={item.target || ""}
-                      className="flex items-center"
-                    >
-                      <Button
-                        className="w-full"
-                        size="lg"
-                        variant={item.variant || "default"}
-                      >
-                        {item.title}
-                        {item.icon && (
-                          <Icon name={item.icon} className="ml-1" />
-                        )}
-                      </Button>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-            {hero.tip && (
-              <p className="mt-8 text-md text-muted-foreground">{hero.tip}</p>
-            )}
-            {hero.show_happy_users && <HappyUsers />}
           </div>
         </div>
       </section>

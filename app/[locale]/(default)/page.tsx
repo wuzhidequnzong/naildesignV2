@@ -47,18 +47,11 @@ export default async function LandingPage({
       {page.hero && <Hero hero={page.hero} />}
       
       {/* 美甲设计区域 */}
-      <div className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/30">
+      <div className="py-6 md:py-3 bg-gradient-to-b from-background to-muted/30">
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-12">
-            {/* 美甲设计介绍 */}
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t("hero.title")}</h2>
-              <p className="text-xl text-muted-foreground">{t("hero.description")}</p>
-            </div>
-            
-            {/* 美甲设计生成器 */}
+            {/* 美甲设计生成器 - 已移除标题和描述 */}
             <div className="bg-card rounded-lg border shadow-sm p-4 md:p-6">
-              <h3 className="text-xl font-semibold mb-4 md:mb-6">{t("howto.step1.title")}</h3>
               <div className="max-w-3xl mx-auto">
                 <NailDesignGenerator translations={page.components?.nailDesignGenerator} />
               </div>
