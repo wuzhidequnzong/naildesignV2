@@ -598,11 +598,13 @@
       "items": [
         {
           "title": "关于",
+          "visible": false,
           "children": [
             {
               "title": "我们的故事",
               "url": "/about-us",
-              "target": "_self"
+              "target": "_self",
+              "visible": false
             },
             {
               "title": "使用方法",
@@ -626,6 +628,7 @@
         },
         {
           "title": "资源",
+          "visible": false,
           "children": [
             {
               "title": "美甲护理技巧",
@@ -649,6 +652,7 @@
         },
         {
           "title": "支持",
+          "visible": false,
           "children": [
             {
               "title": "帮助中心",
@@ -678,25 +682,29 @@
           "title": "Instagram",
           "icon": "RiInstagramLine",
           "url": "https://instagram.com/naildesigns.site",
-          "target": "_blank"
+          "target": "_blank",
+          "visible": false
         },
         {
           "title": "Pinterest",
           "icon": "RiPinterestLine",
           "url": "https://pinterest.com/naildesignssite",
-          "target": "_blank"
+          "target": "_blank",
+          "visible": false
         },
         {
           "title": "TikTok",
           "icon": "RiTiktokLine",
           "url": "https://tiktok.com/@naildesigns.site",
-          "target": "_blank"
+          "target": "_blank",
+          "visible": false
         },
         {
           "title": "邮箱",
           "icon": "RiMailLine",
           "url": "mailto:hello@naildesigns.site",
-          "target": "_self"
+          "target": "_self",
+          "visible": false
         }
       ]
     },

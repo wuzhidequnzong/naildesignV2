@@ -37,7 +37,7 @@ export default function Footer({ footer }: { footer: FooterType }) {
               )}
               {footer.social && (
                 <ul className="flex items-center space-x-6 text-muted-foreground">
-                  {footer.social.items?.map((item, i) => (
+                  {footer.social.items?.filter(item => item.visible !== false).map((item, i) => (
                     <li key={i} className="font-medium hover:text-primary">
                       <a href={item.url} target={item.target}>
                         {item.icon && (
@@ -50,7 +50,7 @@ export default function Footer({ footer }: { footer: FooterType }) {
               )}
             </div>
             <div className="grid grid-cols-3 gap-6 lg:gap-20">
-              {footer.nav?.items?.map((item, i) => (
+              {footer.nav?.items?.filter(item => item.visible !== false).map((item, i) => (
                 <div key={i}>
                   <p className="mb-6 font-bold">{item.title}</p>
                   <ul className="space-y-4 text-sm text-muted-foreground">

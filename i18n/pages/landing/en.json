@@ -598,11 +598,13 @@
       "items": [
         {
           "title": "About",
+          "visible": false,
           "children": [
             {
               "title": "Our Story",
               "url": "/about-us",
-              "target": "_self"
+              "target": "_self",
+              "visible": false
             },
             {
               "title": "How It Works",
@@ -626,6 +628,7 @@
         },
         {
           "title": "Resources",
+          "visible": false,
           "children": [
             {
               "title": "Nail Care Tips",
@@ -649,6 +652,7 @@
         },
         {
           "title": "Support",
+          "visible": false,
           "children": [
             {
               "title": "Help Center",
@@ -678,25 +682,29 @@
           "title": "Instagram",
           "icon": "RiInstagramLine",
           "url": "https://instagram.com/naildesigns.site",
-          "target": "_blank"
+          "target": "_blank",
+          "visible": false
         },
         {
           "title": "Pinterest",
           "icon": "RiPinterestLine",
           "url": "https://pinterest.com/naildesignssite",
-          "target": "_blank"
+          "target": "_blank",
+          "visible": false
         },
         {
           "title": "TikTok",
           "icon": "RiTiktokLine",
           "url": "https://tiktok.com/@naildesigns.site",
-          "target": "_blank"
+          "target": "_blank",
+          "visible": false
         },
         {
           "title": "Email",
           "icon": "RiMailLine",
           "url": "mailto:hello@naildesigns.site",
-          "target": "_self"
+          "target": "_self",
+          "visible": false
         }
       ]
     },
