@@ -14,6 +14,7 @@ export interface SectionItem {
 
 export interface Section {
   disabled?: boolean;
+  visible?: boolean;
   name?: string;
   title?: string;
   description?: string;

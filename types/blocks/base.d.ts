@@ -51,6 +51,7 @@ export interface NavItem {
   is_expand?: boolean;
   className?: string;
   children?: NavItem[];
+  visible?: boolean;
 }
 
 export interface Nav {

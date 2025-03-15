@@ -3,10 +3,10 @@
   "theme": "light",
   "header": {
     "brand": {
-      "title": "ShipAny",
+      "title": "Nail Designs",
       "logo": {
         "src": "/logo.png",
-        "alt": "ShipAny"
+        "alt": "Nail Designs"
       },
       "url": "/"
     },
@@ -15,46 +15,34 @@
         {
           "title": "Nail Design",
           "url": "/nail-design",
-          "icon": "MdOutlineDesignServices"
+          "icon": "MdOutlineDesignServices",
+          "visible": false
         },
         {
-          "title": "Features",
+          "title": "How It Works",
           "url": "/#feature",
-          "icon": "HiOutlineSparkles"
+          "icon": "HiOutlineSparkles",
+          "visible": false
+        },
+        {
+          "title": "Styles",
+          "url": "/#showcase",
+          "icon": "BiCube",
+          "visible": false
         },
         {
           "title": "Pricing",
           "url": "/#pricing",
-          "icon": "MdPayment"
-        },
-        {
-          "title": "Showcase",
-          "url": "/#showcase",
-          "icon": "BiCube",
-          "children": [
-            {
-              "title": "AI Wallpaper Shop",
-              "description": "AI Wallpaper Generator",
-              "icon": "MdOutlineWallpaper",
-              "url": "https://aiwallpaper.shop",
-              "target": "_blank"
-            },
-            {
-              "title": "AI Cover Generator",
-              "description": "AI Cover Generator",
-              "icon": "",
-              "url": "https://aicover.design",
-              "target": "_blank"
-            }
-          ]
+          "icon": "MdPayment",
+          "visible": false
         }
       ]
     },
     "buttons": [
       {
-        "title": "Get ShipAny",
-        "url": "https://shipany.ai",
-        "target": "_blank",
+        "title": "Get Started",
+        "url": "/nail-design",
+        "target": "_self",
         "variant": "link",
         "icon": "RiArrowRightUpLine"
       }
@@ -64,28 +52,28 @@
     "show_locale": true
   },
   "hero": {
-    "title": "Ship Any AI Startups in hours, not days",
-    "highlight_text": "Ship Any",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups.<br/>Ship Fast with a variety of templates and components.",
+    "title": "Create nail designs in seconds with AI",
+    "highlight_text": "Nail Designs",
+    "description": "The #1 AI Nail Design Tool<br/>Design your own nail art before your next manicure.",
     "announcement": {
       "label": "2025",
-      "title": "🎉 Happy New Year",
-      "url": "/#pricing"
+      "title": "🎨 202,000+ Designs Created",
+      "url": "/#showcase"
     },
-    "tip": "🎁 50% off before 2025",
+    "tip": "🎁 5 free designs daily for registered users",
     "buttons": [
       {
-        "title": "Get Started",
+        "title": "Create Your Design",
         "icon": "RiFlashlightFill",
-        "url": "/#pricing",
+        "url": "/nail-design",
         "target": "_self",
         "variant": "default"
       },
       {
-        "title": "Join Discord",
-        "icon": "RiDiscordFill",
-        "url": "https://discord.gg/HQNnrzjZQS",
-        "target": "_blank",
+        "title": "View Examples",
+        "icon": "RiGalleryFill",
+        "url": "/#showcase",
+        "target": "_self",
         "variant": "outline"
       }
     ],
@@ -93,7 +81,8 @@
     "show_badge": false
   },
   "branding": {
-    "title": "ShipAny is built on the shoulders of giants",
+    "visible": false,
+    "title": "Nail Designs is built on modern technologies",
     "items": [
       {
         "title": "Next.js",
@@ -134,56 +123,56 @@
   },
   "introduce": {
     "name": "introduce",
-    "title": "What is ShipAny",
+    "title": "What is Nail Designs",
     "label": "Introduce",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Built in a variety of templates and components.",
+    "description": "Nail Designs is an AI-powered tool that allows you to design your own nail art before your next manicure. Simply describe your desired style and our AI will generate stunning, personalized nail designs in seconds.",
     "image": {
       "src": "/imgs/features/1.png"
     },
     "items": [
       {
-        "title": "Ready-to-use Templates",
-        "description": "Choose from dozens of production-ready AI SaaS templates to quickly start your project.",
-        "icon": "RiNextjsFill"
+        "title": "AI-Generated Designs",
+        "description": "Our advanced AI creates unique nail designs based on your descriptions.",
+        "icon": "RiAiGenerate"
       },
       {
-        "title": "Infrastructure Setup",
-        "description": "Get instant access to scalable infrastructure with best practices built-in.",
-        "icon": "RiDatabase2Line"
+        "title": "Variety of Styles",
+        "description": "From elegant to psychedelic, create any nail style you can imagine.",
+        "icon": "RiPaintBrushLine"
       },
       {
-        "title": "Quick Deployment",
-        "description": "Deploy your AI SaaS application to production in hours, not days.",
-        "icon": "RiCloudyFill"
+        "title": "Save Your Designs",
+        "description": "Download and save your designs to show your nail artist.",
+        "icon": "RiSave3Line"
       }
     ]
   },
   "benefit": {
     "name": "benefit",
-    "title": "Why Choose ShipAny",
+    "title": "Why Choose Nail Designs",
     "label": "Benefits",
-    "description": "Get everything you need to launch your AI startup - from ready-to-use templates to technical support.",
+    "description": "Experience the future of nail art with our powerful AI design tool.",
     "items": [
       {
-        "title": "Complete Framework",
-        "description": "Built on Next.js with authentication, payments, and AI integration - everything works out of the box.",
-        "icon": "RiNextjsFill",
+        "title": "Preview Before You Commit",
+        "description": "See exactly how your nail design will look before visiting your nail technician.",
+        "icon": "RiEyeLine",
         "image": {
           "src": "/imgs/features/2.png"
         }
       },
       {
-        "title": "Rich Templates Library",
-        "description": "Choose from various AI SaaS templates to kickstart your project - chatbots, image generation, and more.",
-        "icon": "RiClapperboardAiLine",
+        "title": "Unleash Your Creativity",
+        "description": "No design skills needed - just describe what you want and our AI does the rest.",
+        "icon": "RiMagicLine",
         "image": {
           "src": "/imgs/features/3.png"
         }
       },
       {
-        "title": "Technical Guidance",
-        "description": "Get dedicated support and join our developer community to ensure your successful launch.",
-        "icon": "RiCodeFill",
+        "title": "Perfect For Everyone",
+        "description": "Whether you're a nail enthusiast or a professional nail artist looking for inspiration.",
+        "icon": "RiUserStarLine",
         "image": {
           "src": "/imgs/features/4.png"
         }
@@ -192,8 +181,8 @@
   },
   "usage": {
     "name": "usage",
-    "title": "How to Launch with ShipAny",
-    "description": "Get your AI SaaS startup running in three simple steps:",
+    "title": "How AI Nail Design Works",
+    "description": "Create stunning, personalized nail art in three simple steps:",
     "image": {
       "src": "/imgs/features/1.png"
     },
@@ -201,29 +190,29 @@
     "text_align": "center",
     "items": [
       {
-        "title": "Get ShipAny",
-        "description": "Buy ShipAny with a one-time payment. Check your email for the code and documentation.",
+        "title": "Describe",
+        "description": "Describe your desired nail design in detail - colors, patterns, themes, or any inspiration.",
         "image": {
           "src": "/imgs/features/5.png"
         }
       },
       {
-        "title": "Start Your Project",
-        "description": "Read the documentation and clone the code of ShipAny. Start building your AI SaaS startup.",
+        "title": "Generate",
+        "description": "Our AI will instantly generate personalized nail designs based on your description.",
         "image": {
           "src": "/imgs/features/6.png"
         }
       },
       {
-        "title": "Customize Your Project",
-        "description": "Modify the template with your data and contents. Specific AI functionality needs.",
+        "title": "Download",
+        "description": "Save your favorite designs to your library or download to share with your nail artist.",
         "image": {
           "src": "/imgs/features/7.png"
         }
       },
       {
-        "title": "Deploy to Production",
-        "description": "Deploy your project to production with a few steps and start serving customers immediately.",
+        "title": "Show Your Artist",
+        "description": "Bring your design to your next appointment for a perfect match to your vision.",
         "image": {
           "src": "/imgs/features/8.png"
         }
@@ -232,123 +221,124 @@
   },
   "feature": {
     "name": "feature",
-    "title": "Key Features of ShipAny",
-    "description": "Everything you need to launch your AI SaaS startup quickly and efficiently.",
+    "title": "Key Features of Nail Designs",
+    "description": "Everything you need to create the perfect nail design.",
     "items": [
       {
-        "title": "Next.js Boilerplate",
-        "description": "Production-ready Next.js templates with SEO-friendly structure and i18n support.",
-        "icon": "RiNextjsFill"
+        "title": "Detailed AI Designs",
+        "description": "Our AI generates high-quality, detailed nail designs based on your descriptions.",
+        "icon": "RiAiGenerate"
       },
       {
-        "title": "Authentication & Payments",
-        "description": "Integrated Google OAuth, one-tap login, and Stripe payment processing.",
-        "icon": "RiKey2Fill"
+        "title": "Design Library",
+        "description": "All your designs are saved to your personal library for future reference.",
+        "icon": "RiGalleryLine"
       },
       {
-        "title": "Data Infrastructure",
-        "description": "Built-in Supabase integration for reliable and scalable data storage.",
-        "icon": "RiDatabase2Line"
+        "title": "Style Inspiration",
+        "description": "Browse trending designs for inspiration if you're not sure what you want.",
+        "icon": "RiLightbulbLine"
       },
       {
-        "title": "One-Click Deployment",
-        "description": "Seamless deployment to Vercel or Cloudflare with automated setup.",
-        "icon": "RiCloudy2Fill"
+        "title": "Easy Sharing",
+        "description": "Share your designs with friends or your nail artist with one click.",
+        "icon": "RiShareLine"
       },
       {
-        "title": "Business Analytics",
-        "description": "Integrated Google Analytics and Search Console for tracking growth.",
-        "icon": "RiBarChart2Line"
+        "title": "Multi-Device Support",
+        "description": "Access your designs from any device - desktop, tablet, or mobile.",
+        "icon": "RiDeviceLine"
       },
       {
-        "title": "AI-Ready Infrastructure",
-        "description": "Pre-configured AI integration with built-in credits system and API sales.",
-        "icon": "RiRobot2Line"
+        "title": "Daily Free Designs",
+        "description": "Registered users get 5 free designs daily to try out different ideas.",
+        "icon": "RiGiftLine"
       }
     ]
   },
   "showcase": {
+    "visible": false,
     "name": "showcase",
-    "title": "AI SaaS Startups built with ShipAny",
-    "description": "Easy to use and fast to ship.",
+    "title": "Trending Nail Designs",
+    "description": "Check out the latest nail art trends and get inspired for your next manicure.",
     "items": [
       {
-        "title": "ThinkAny",
-        "description": "AI Search Engine",
-        "url": "https://thinkany.ai",
-        "target": "_blank",
-        "image": {
-          "src": "/imgs/showcases/7.png"
-        }
-      },
-      {
-        "title": "HeyBeauty",
-        "description": "AI Virtual Try On",
-        "url": "https://heybeauty.ai",
-        "target": "_blank",
-        "image": {
-          "src": "/imgs/showcases/5.png"
-        }
-      },
-      {
-        "title": "AI Wallpaper",
-        "description": "AI Wallpaper Generator",
-        "url": "https://aiwallpaper.shop",
-        "target": "_blank",
+        "title": "Psychedelic Swirls",
+        "description": "Vibrant colored swirls",
+        "url": "/nail-design?prompt=psychedelic%20swirls",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/1.png"
         }
       },
       {
-        "title": "AI Cover",
-        "description": "AI Cover Generator",
-        "url": "https://aicover.design",
-        "target": "_blank",
+        "title": "Autumn Nails",
+        "description": "Fall-inspired designs",
+        "url": "/nail-design?prompt=autumn%20nails",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/2.png"
         }
       },
       {
-        "title": "GPTs Works",
-        "description": "GPTs Directory",
-        "url": "https://gpts.works",
-        "target": "_blank",
+        "title": "Black Nails",
+        "description": "Elegant black designs",
+        "url": "/nail-design?prompt=black%20nails",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/3.png"
         }
       },
       {
-        "title": "Melodisco",
-        "description": "AI Music Player",
-        "url": "https://melodis.co",
-        "target": "_blank",
+        "title": "Classy Short Nails",
+        "description": "Sophisticated short nail art",
+        "url": "/nail-design?prompt=classy%20short%20nails",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/4.png"
         }
       },
       {
-        "title": "Pagen",
-        "description": "AI Landing Page Generator",
-        "url": "https://pagen.so",
-        "target": "_blank",
+        "title": "Summer Vibes",
+        "description": "Bright summer designs",
+        "url": "/nail-design?prompt=summer%20vibes%20nails",
+        "target": "_self",
+        "image": {
+          "src": "/imgs/showcases/5.png"
+        }
+      },
+      {
+        "title": "French Tips",
+        "description": "Modern french manicure",
+        "url": "/nail-design?prompt=modern%20french%20tips",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/6.png"
         }
       },
       {
-        "title": "SoraFM",
-        "description": "AI Video Generator",
-        "url": "https://sorafm.trys.ai",
-        "target": "_blank",
+        "title": "Minimalist Designs",
+        "description": "Simple elegant patterns",
+        "url": "/nail-design?prompt=minimalist%20nail%20design",
+        "target": "_self",
+        "image": {
+          "src": "/imgs/showcases/7.png"
+        }
+      },
+      {
+        "title": "Floral Patterns",
+        "description": "Beautiful flower designs",
+        "url": "/nail-design?prompt=floral%20nail%20patterns",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/8.png"
         }
       },
       {
-        "title": "PodLM",
-        "description": "AI Podcast Generator",
-        "url": "https://podlm.ai",
-        "target": "_blank",
+        "title": "Glitter Nails",
+        "description": "Sparkling glitter designs",
+        "url": "/nail-design?prompt=glitter%20nails",
+        "target": "_self",
         "image": {
           "src": "/imgs/showcases/9.png"
         }
@@ -358,24 +348,24 @@
   "stats": {
     "name": "stats",
     "label": "Stats",
-    "title": "People Love ShipAny",
-    "description": "for it's easy to use and fast to ship.",
+    "title": "People Love Nail Designs",
+    "description": "Join thousands of satisfied users creating beautiful nail art.",
     "icon": "FaRegHeart",
     "items": [
       {
         "title": "Trusted by",
-        "label": "99+",
-        "description": "Customers"
+        "label": "2,800+",
+        "description": "Happy Customers"
       },
       {
-        "title": "Built in",
-        "label": "20+",
-        "description": "Components"
+        "title": "Created",
+        "label": "200,000+",
+        "description": "Nail Designs"
       },
       {
-        "title": "Ship Fast in",
-        "label": "5",
-        "description": "Minutes"
+        "title": "Generate in",
+        "label": "10",
+        "description": "Seconds"
       }
     ]
   },
@@ -383,160 +373,158 @@
     "name": "pricing",
     "label": "Pricing",
     "title": "Pricing",
-    "description": "Get all features of ShipAny, Ship your AI SaaS startups fast.",
+    "description": "Start designing your perfect nails today.",
     "groups": [],
     "items": [
       {
-        "title": "Starter",
-        "description": "Get started with your first SaaS startup.",
+        "title": "Free Plan",
+        "description": "Perfect for trying out the service.",
         "features_title": "Includes",
         "features": [
-          "100 credits, valid for 1 month",
-          "NextJS boilerplate",
-          "SEO-friendly structure",
-          "Payment with Stripe",
-          "Data storage with Supabase",
-          "Google Oauth & One-Tap Login",
-          "i18n support"
+          "5 free designs daily",
+          "Basic prompt options",
+          "Standard resolution designs",
+          "Save designs to your library",
+          "Access to trending designs",
+          "Mobile and desktop access"
         ],
-        "interval": "one-time",
-        "amount": 9900,
-        "cn_amount": 69900,
+        "interval": "monthly",
+        "amount": 0,
+        "cn_amount": 0,
         "currency": "USD",
-        "price": "$99",
-        "original_price": "$199",
+        "price": "Free",
+        "original_price": "",
         "unit": "USD",
         "is_featured": false,
-        "tip": "Pay once. Build unlimited projects!",
+        "tip": "No credit card required!",
         "button": {
-          "title": "Get ShipAny",
-          "url": "/#pricing",
+          "title": "Get Started",
+          "url": "/nail-design",
           "icon": "RiFlashlightFill"
         },
-        "product_id": "starter",
-        "product_name": "ShipAny Boilerplate Starter",
-        "credits": 100,
+        "product_id": "free",
+        "product_name": "Nail Designs Free Plan",
+        "credits": 5,
         "valid_months": 1
       },
       {
-        "title": "Standard",
-        "description": "Ship Fast with your SaaS Startups.",
+        "title": "Premium",
+        "description": "For nail enthusiasts who want more.",
         "label": "Popular",
-        "features_title": "Everything in Starter, plus",
+        "features_title": "Everything in Free, plus",
         "features": [
-          "200 credits, valid for 3 month",
-          "Deploy with Vercel or Cloudflare",
-          "Generation of Privacy & Terms",
-          "Google Analytics Integration",
-          "Google Search Console Integration",
-          "Discord community",
-          "Technical support for your first ship",
-          "Lifetime updates"
+          "Unlimited designs",
+          "Advanced prompt options",
+          "High-resolution designs",
+          "Priority generation",
+          "Download in multiple formats",
+          "No watermarks",
+          "Premium customer support"
         ],
-        "interval": "one-time",
-        "amount": 19900,
-        "cn_amount": 139900,
+        "interval": "monthly",
+        "amount": 1490,
+        "cn_amount": 9900,
         "currency": "USD",
-        "price": "$199",
-        "original_price": "$299",
+        "price": "$14.90",
+        "original_price": "$19.99",
         "unit": "USD",
         "is_featured": true,
-        "tip": "Pay once. Build unlimited projects!",
+        "tip": "Most popular choice!",
         "button": {
-          "title": "Get ShipAny",
-          "url": "/#pricing",
-          "icon": "RiFlashlightFill"
-        },
-        "product_id": "standard",
-        "product_name": "ShipAny Boilerplate Standard",
-        "credits": 200,
-        "valid_months": 3
-      },
-      {
-        "title": "Premium",
-        "description": "Ship Any AI SaaS Startups.",
-        "features_title": "Everything in Standard, plus",
-        "features": [
-          "300 credits, valid for 1 year",
-          "Business Functions with AI",
-          "User Center",
-          "Credits System",
-          "API Sales for your SaaS",
-          "Admin System",
-          "Priority Technical Support"
-        ],
-        "interval": "one-time",
-        "amount": 29900,
-        "cn_amount": 199900,
-        "currency": "USD",
-        "price": "$299",
-        "original_price": "$399",
-        "unit": "USD",
-        "is_featured": false,
-        "tip": "Pay once. Build unlimited projects!",
-        "button": {
-          "title": "Get ShipAny",
+          "title": "Go Premium",
           "url": "/#pricing",
           "icon": "RiFlashlightFill"
         },
         "product_id": "premium",
-        "product_name": "ShipAny Boilerplate Premium",
-        "credits": 300,
-        "valid_months": 12
+        "product_name": "Nail Designs Premium Plan",
+        "credits": 999,
+        "valid_months": 1
+      },
+      {
+        "title": "Professional",
+        "description": "For nail artists and salons.",
+        "features_title": "Everything in Premium, plus",
+        "features": [
+          "Commercial usage rights",
+          "Bulk design generation",
+          "Client management tools",
+          "Custom branding options",
+          "API access",
+          "Dedicated account manager",
+          "Early access to new features"
+        ],
+        "interval": "monthly",
+        "amount": 4990,
+        "cn_amount": 29900,
+        "currency": "USD",
+        "price": "$49.90",
+        "original_price": "$69.99",
+        "unit": "USD",
+        "is_featured": false,
+        "tip": "Perfect for nail professionals!",
+        "button": {
+          "title": "Get Professional",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "professional",
+        "product_name": "Nail Designs Professional Plan",
+        "credits": 9999,
+        "valid_months": 1
       }
     ]
   },
   "testimonial": {
     "name": "testimonial",
     "label": "Testimonial",
-    "title": "What Users Say About ShipAny",
-    "description": "Hear from developers and founders who launched their AI startups with ShipAny.",
+    "title": "What Users Say About Nail Designs",
+    "description": "Hear from our community of nail enthusiasts and professionals.",
     "icon": "GoThumbsup",
     "items": [
       {
-        "title": "David Chen",
-        "label": "Founder of AIWallpaper.shop",
-        "description": "ShipAny saved us months of development time. We launched our AI wallpaper business in just 2 days and got our first paying customer within a week!",
+        "title": "Sarah Johnson",
+        "label": "Nail Enthusiast",
+        "description": "I used to struggle explaining what I wanted to my nail tech. Now I just show them my AI designs and get exactly what I want every time!",
         "image": {
           "src": "/imgs/users/1.png"
         }
       },
       {
-        "title": "Rachel Kim",
-        "label": "CTO at HeyBeauty.ai",
-        "description": "The pre-built AI infrastructure is a game-changer. We didn't have to worry about architecture - just focused on our AI beauty tech and went live fast.",
+        "title": "Jessica Kim",
+        "label": "Professional Nail Artist",
+        "description": "This tool has transformed my business. My clients love browsing design ideas before their appointments, and it's boosted my creativity too!",
         "image": {
           "src": "/imgs/users/2.png"
         }
       },
       {
-        "title": "Marcus Thompson",
-        "label": "Solo Developer",
-        "description": "As a solo developer, ShipAny gave me everything I needed - auth, payments, AI integration, and beautiful UI. Launched my SaaS in a weekend!",
+        "title": "Michael Rodriguez",
+        "label": "Salon Owner",
+        "description": "We've integrated Nail Designs into our booking process. Clients design their nails when making appointments, making our service much more efficient.",
         "image": {
           "src": "/imgs/users/3.png"
         }
       },
       {
-        "title": "Sofia Garcia",
-        "label": "CEO of Melodisco",
-        "description": "The templates are production-ready and highly customizable. We built our AI music platform in hours instead of months. Incredible time-to-market!",
+        "title": "Emily Chen",
+        "label": "Regular Customer",
+        "description": "I'm obsessed with changing my nail style and this lets me experiment with so many designs without commitment. The AI is surprisingly accurate!",
         "image": {
           "src": "/imgs/users/4.png"
         }
       },
       {
-        "title": "James Wilson",
-        "label": "Tech Lead at GPTs.works",
-        "description": "ShipAny's infrastructure is rock-solid. We scaled from 0 to 10k users without touching the backend. Best investment for our AI startup.",
+        "title": "Olivia Wilson",
+        "label": "Fashion Blogger",
+        "description": "As someone who features nail art on my blog, this tool is a game-changer for planning content and coordinating nail designs with outfits.",
         "image": {
           "src": "/imgs/users/5.png"
         }
       },
       {
-        "title": "Anna Zhang",
-        "label": "Startup Founder",
-        "description": "From idea to launch in 3 days! ShipAny's templates and deployment tools made it possible to test our AI business concept incredibly fast.",
+        "title": "David Thompson",
+        "label": "Nail Product Developer",
+        "description": "We use Nail Designs to visualize how our new polish colors will look in different patterns. It's become an essential part of our product development.",
         "image": {
           "src": "/imgs/users/6.png"
         }
@@ -546,50 +534,50 @@
   "faq": {
     "name": "faq",
     "label": "FAQ",
-    "title": "Frequently Asked Questions About ShipAny",
-    "description": "Have another question? Contact us on Discord or by email.",
+    "title": "Frequently Asked Questions",
+    "description": "Have another question? Contact us by email or social media.",
     "items": [
       {
-        "title": "What exactly is ShipAny and how does it work?",
-        "description": "ShipAny is a comprehensive NextJS boilerplate designed specifically for building AI SaaS startups. It provides ready-to-use templates, infrastructure setup, and deployment tools that help you launch your AI business in hours instead of days."
+        "title": "How accurate are the AI-generated nail designs?",
+        "description": "Our AI creates highly accurate representations of your descriptions. While the final result from your nail technician may vary slightly depending on their skill and available materials, our designs provide an excellent visual reference."
       },
       {
-        "title": "Do I need advanced technical skills to use ShipAny?",
-        "description": "While basic programming knowledge is helpful, ShipAny is designed to be developer-friendly. Our templates and documentation make it easy to get started, even if you're not an expert in AI or cloud infrastructure."
+        "title": "Can I use the designs if I'm not a professional?",
+        "description": "Absolutely! Nail Designs is perfect for anyone who wants to visualize nail art before getting it done. Simply show the design to your nail technician at your next appointment."
       },
       {
-        "title": "What types of AI SaaS can I build with ShipAny?",
-        "description": "ShipAny supports a wide range of AI applications, from content generation to data analysis tools. Our templates cover popular use cases like AI chatbots, content generators, image processing apps, and more."
+        "title": "How many designs can I create with the free plan?",
+        "description": "Free plan users can create 5 designs per day. These designs are saved to your library and can be accessed at any time, even if you don't create new ones."
       },
       {
-        "title": "How long does it typically take to launch with ShipAny?",
-        "description": "With ShipAny, you can have a working prototype in hours and a production-ready application in hours. Our one-click deployment and pre-configured infrastructure significantly reduce the traditional months-long development cycle."
+        "title": "Can I edit the designs after they're generated?",
+        "description": "Currently, we don't offer editing tools, but you can regenerate designs by adjusting your description until you get the perfect result. We're working on adding editing features in future updates."
       },
       {
-        "title": "What's included in the ShipAny infrastructure?",
-        "description": "ShipAny provides a complete infrastructure stack including authentication, database setup, API integration, payment processing, and scalable cloud deployment. Everything is pre-configured following industry best practices."
+        "title": "Do you offer designs for special occasions?",
+        "description": "Yes! You can request designs for any occasion - weddings, holidays, birthdays, etc. Just include details about the event in your description for themed nail art."
       },
       {
-        "title": "Can I customize the templates to match my brand?",
-        "description": "Absolutely! All ShipAny templates are fully customizable. You can modify the design, features, and functionality to match your brand identity and specific business requirements while maintaining the robust underlying infrastructure."
+        "title": "Can nail technicians and salons use these designs commercially?",
+        "description": "Yes, with our Professional plan, nail technicians and salons can use our designs commercially, including in their portfolios, social media, and marketing materials."
       }
     ]
   },
   "cta": {
     "name": "cta",
-    "title": "Ship your first AI SaaS Startup",
-    "description": "Start from here, ship with ShipAny.",
+    "title": "Design Your Perfect Nails Today",
+    "description": "Join thousands of satisfied users creating beautiful nail art with AI.",
     "buttons": [
       {
-        "title": "Get ShipAny",
-        "url": "https://shipany.ai",
-        "target": "_blank",
+        "title": "Create Your First Design",
+        "url": "/nail-design",
+        "target": "_self",
         "icon": "GoArrowUpRight"
       },
       {
-        "title": "Read Document",
-        "url": "https://docs.shipany.ai",
-        "target": "_blank",
+        "title": "View Trending Designs",
+        "url": "/#showcase",
+        "target": "_self",
         "variant": "outline"
       }
     ]
@@ -597,34 +585,42 @@
   "footer": {
     "name": "footer",
     "brand": {
-      "title": "ShipAny",
-      "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Ship Fast with a variety of templates and components.",
+      "title": "Nail Designs",
+      "description": "Create stunning nail designs in seconds with our AI-powered tool. Perfect for planning your next manicure.",
       "logo": {
         "src": "/logo.png",
-        "alt": "ShipAny"
+        "alt": "Nail Designs"
       },
       "url": "/"
     },
-    "copyright": "© 2025 • ShipAny All rights reserved.",
+    "copyright": "© 2025 • Nail Designs All rights reserved.",
     "nav": {
       "items": [
         {
           "title": "About",
           "children": [
             {
-              "title": "Features",
-              "url": "/#feature",
+              "title": "Our Story",
+              "url": "/about-us",
               "target": "_self"
             },
             {
-              "title": "Showcases",
+              "title": "How It Works",
+              "url": "/#feature",
+              "target": "_self",
+              "visible": false
+            },
+            {
+              "title": "Design Showcase",
               "url": "/#showcase",
-              "target": "_self"
+              "target": "_self",
+              "visible": false
             },
             {
               "title": "Pricing",
               "url": "/#pricing",
-              "target": "_self"
+              "target": "_self",
+              "visible": false
             }
           ]
         },
@@ -632,39 +628,45 @@
           "title": "Resources",
           "children": [
             {
-              "title": "Documents",
-              "url": "https://docs.shipany.ai",
-              "target": "_blank"
+              "title": "Nail Care Tips",
+              "url": "/blog/nail-care",
+              "target": "_self",
+              "visible": false
             },
             {
-              "title": "Components",
-              "url": "https://shipany.ai/components",
-              "target": "_blank"
+              "title": "Trending Styles",
+              "url": "/blog/trends",
+              "target": "_self",
+              "visible": false
             },
             {
-              "title": "Templates",
-              "url": "https://shipany.ai/templates",
-              "target": "_blank"
+              "title": "For Professionals",
+              "url": "/professionals",
+              "target": "_self",
+              "visible": false
             }
           ]
         },
         {
-          "title": "Friends",
+          "title": "Support",
           "children": [
             {
-              "title": "ThinkAny",
-              "url": "https://thinkany.ai",
-              "target": "_blank"
+              "title": "Help Center",
+              "url": "/help",
+              "target": "_self",
+              "visible": false
             },
             {
-              "title": "HeyBeauty",
-              "url": "https://heybeauty.ai",
-              "target": "_blank"
+              "title": "Contact Us",
+              "url": "/contact",
+              "target": "_self",
+              "visible": false
             },
             {
-              "title": "Pagen",
-              "url": "https://pagen.so",
-              "target": "_blank"
+              "title": "Feedback",
+              "url": "/feedback",
+              "target": "_self",
+              "visible": false
             }
           ]
         }
@@ -673,27 +675,27 @@
     "social": {
       "items": [
         {
-          "title": "X",
-          "icon": "RiTwitterXFill",
-          "url": "https://x.com/shipanyai",
+          "title": "Instagram",
+          "icon": "RiInstagramLine",
+          "url": "https://instagram.com/naildesigns.site",
           "target": "_blank"
         },
         {
-          "title": "Github",
-          "icon": "RiGithubFill",
-          "url": "https://github.com/shipanyai",
+          "title": "Pinterest",
+          "icon": "RiPinterestLine",
+          "url": "https://pinterest.com/naildesignssite",
           "target": "_blank"
         },
         {
-          "title": "Discord",
-          "icon": "RiDiscordFill",
-          "url": "https://discord.gg/HQNnrzjZQS",
+          "title": "TikTok",
+          "icon": "RiTiktokLine",
+          "url": "https://tiktok.com/@naildesigns.site",
           "target": "_blank"
         },
         {
           "title": "Email",
           "icon": "RiMailLine",
-          "url": "mailto:support@shipany.ai",
+          "url": "mailto:hello@naildesigns.site",
           "target": "_self"
         }
       ]
@@ -709,6 +711,25 @@
           "url": "/terms-of-service"
         }
       ]
+    }
+  },
+  "components": {
+    "nailDesignGenerator": {
+      "placeholder": "Nail design description",
+      "generate": "Generate",
+      "generating": "Generating...",
+      "login": "Login",
+      "errorLength": "Prompt length must be between 5-200 characters",
+      "errorLogin": "Please login to generate nail designs",
+      "errorLimit": "Each user can generate up to {limit} times per day",
+      "tipInput": "Enter 5-200 characters to describe your desired nail design",
+      "tipNeedMore": "Need {0} more characters",
+      "tipExceeded": "Exceeded by {0} characters",
+      "tipValid": "Character count is valid",
+      "remaining": "Today's remaining: {0}/{1} times",
+      "loginTip": "Login to create your custom nail designs, each user can generate multiple times daily for free",
+      "successAlert": "Nail design generated successfully. The page will refresh.",
+      "genericError": "Generation failed, please try again later"
     }
   }
 }

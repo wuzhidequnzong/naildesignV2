@@ -54,7 +54,7 @@ export default function Footer({ footer }: { footer: FooterType }) {
                 <div key={i}>
                   <p className="mb-6 font-bold">{item.title}</p>
                   <ul className="space-y-4 text-sm text-muted-foreground">
-                    {item.children?.map((iitem, ii) => (
+                    {item.children?.filter(iitem => iitem.visible !== false).map((iitem, ii) => (
                       <li key={ii} className="font-medium hover:text-primary">
                         <a href={iitem.url} target={iitem.target}>
                           {iitem.title}

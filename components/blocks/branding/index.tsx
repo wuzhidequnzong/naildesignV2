@@ -1,7 +1,7 @@
 import { Section as SectionType } from "@/types/blocks/section";
 
 export default function Branding({ section }: { section: SectionType }) {
-  if (section.disabled) {
+  if (section.disabled || section.visible === false) {
     return null;
   }
 

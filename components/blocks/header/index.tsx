@@ -63,8 +63,11 @@ export default function Header({ header }: { header: HeaderType }) {
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
-                  {header.nav?.items?.map((item, i) => {
+                  {header.nav?.items?.filter(item => item.visible !== false).map((item, i) => {
                     if (item.children && item.children.length > 0) {
+                      const visibleChildren = item.children.filter(child => child.visible !== false);
+                      if (visibleChildren.length === 0) return null;
+                      
                       return (
                         <NavigationMenuItem
                           key={i}
@@ -82,7 +85,7 @@ export default function Header({ header }: { header: HeaderType }) {
                           <NavigationMenuContent>
                             <ul className="w-80 p-3">
                               <NavigationMenuLink>
-                                {item.children.map((iitem, ii) => (
+                                {visibleChildren.map((iitem, ii) => (
                                   <li key={ii}>
                                     <a
                                       className={cn(
@@ -210,8 +213,11 @@ export default function Header({ header }: { header: HeaderType }) {
                 </SheetHeader>
                 <div className="mb-8 mt-8 flex flex-col gap-4">
                   <Accordion type="single" collapsible className="w-full">
-                    {header.nav?.items?.map((item, i) => {
+                    {header.nav?.items?.filter(item => item.visible !== false).map((item, i) => {
                       if (item.children && item.children.length > 0) {
+                        const visibleChildren = item.children.filter(child => child.visible !== false);
+                        if (visibleChildren.length === 0) return null;
+                        
                         return (
                           <AccordionItem
                             key={i}
@@ -222,7 +228,7 @@ export default function Header({ header }: { header: HeaderType }) {
                               {item.title}
                             </AccordionTrigger>
                             <AccordionContent className="mt-2">
-                              {item.children.map((iitem, ii) => (
+                              {visibleChildren.map((iitem, ii) => (
                                 <a
                                   key={ii}
                                   className={cn(
