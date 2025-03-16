@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
 import { AlertCircle, LogIn, Info } from "lucide-react";
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 /**
  * 美甲设计生成器组件
- * 接收translations作为props，与Hero等其他Landing Page组件保持一致的国际化方案
+ * 使用next-intl的标准翻译方式
  */
-export default function NailDesignGenerator({ translations = {} }: { translations?: Record<string, any> }) {
+export default function NailDesignGenerator() {
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [usageCount, setUsageCount] = useState(0);
@@ -19,35 +19,11 @@ export default function NailDesignGenerator({ translations = {} }: { translation
   const { data: session, status } = useSession();
   
   const locale = useLocale();
-  
-  // 简化的翻译获取函数，直接从props获取
-  const safeT = (key: string, defaultText: string, params?: any) => {
-    if (!translations || !translations[key]) {
-      return defaultText;
-    }
-    
-    try {
-      let result = translations[key];
-      
-      // 处理参数替换
-      if (params) {
-        if (typeof params === 'object') {
-          Object.entries(params).forEach(([paramKey, paramValue]) => {
-            result = result.replace(`{${paramKey}}`, paramValue);
-          });
-        }
-      }
-      
-      return result;
-    } catch (error) {
-      console.error(`Error processing translation key "${key}", using default text`, error);
-      return defaultText;
-    }
-  };
+  const t = useTranslations('NailDesign');
   
   const handlePromptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPrompt(e.target.value);
-    if (errorMessage && errorMessage.includes(safeT('errorLength', 'Prompt length must be between 5-200 characters').substring(0, 10))) {
+    if (errorMessage && errorMessage.includes(t('errorLength', { defaultValue: 'Prompt length must be between 5-200 characters' }).substring(0, 10))) {
       setErrorMessage("");
     }
   };
@@ -60,19 +36,19 @@ export default function NailDesignGenerator({ translations = {} }: { translation
     setErrorMessage("");
     
     if (status !== "authenticated") {
-      setErrorMessage(safeT('errorLogin', 'Please login to generate nail designs'));
+      setErrorMessage(t('errorLogin', { defaultValue: 'Please login to generate nail designs' }));
       console.error("Generation failed: User not logged in");
       return;
     }
     
     if (prompt.length < 5 || prompt.length > 200) {
-      setErrorMessage(safeT('errorLength', 'Prompt length must be between 5-200 characters'));
+      setErrorMessage(t('errorLength', { defaultValue: 'Prompt length must be between 5-200 characters' }));
       console.error(`Generation failed: Prompt length invalid (current: ${prompt.length})`);
       return;
     }
     
     if (usageCount >= usageLimit) {
-      setErrorMessage(safeT('errorLimit', `Each user can generate up to ${usageLimit} times per day`, { limit: usageLimit }));
+      setErrorMessage(t('errorLimit', { defaultValue: `Each user can generate up to ${usageLimit} times per day`, limit: usageLimit }));
       console.error(`Generation failed: User exceeded usage limit (used: ${usageCount}, limit: ${usageLimit})`);
       return;
     }
@@ -101,131 +77,122 @@ export default function NailDesignGenerator({ translations = {} }: { translation
       
       setUsageCount(prev => prev + 1);
       
-      alert(safeT('successAlert', 'Nail design generated successfully. The page will refresh.'));
+      alert(t('successAlert', { defaultValue: 'Nail design generated successfully. The page will refresh.' }));
       
       setTimeout(() => window.location.reload(), 1500);
     } catch (error: any) {
       console.error("Generation failure details:", error);
-      setErrorMessage(error.message || safeT('genericError', 'Generation failed, please try again later'));
+      setErrorMessage(error.message || t('genericError', { defaultValue: 'Generation failed, please try again later' }));
     } finally {
       setIsGenerating(false);
     }
   };
   
-  const fetchUsageLimit = async () => {
-    if (status !== "authenticated") return;
-    
-    try {
-      console.log("Fetching user usage limits");
-      const response = await fetch("/api/user/usage-limits");
-      const data = await response.json();
-      
-      if (response.ok && data.usageLimit) {
-        console.log(`User usage: ${data.usageLimit.daily_usage || 0}/${data.usageLimit.daily_limit || 5}`);
-        setUsageCount(data.usageLimit.daily_usage || 0);
-        setUsageLimit(data.usageLimit.daily_limit || 5);
-      }
-    } catch (error) {
-      console.error("Failed to fetch usage limits details:", error);
-    }
-  };
-  
   useEffect(() => {
-    if (status === "authenticated") {
-      fetchUsageLimit();
-    }
+    const fetchUsageLimit = async () => {
+      if (status === "authenticated") {
+        try {
+          const response = await fetch("/api/user/usage-limits");
+          if (response.ok) {
+            const data = await response.json();
+            setUsageCount(data.used || 0);
+            setUsageLimit(data.limit || 5);
+          }
+        } catch (error) {
+          console.error("Failed to fetch usage limits:", error);
+        }
+      }
+    };
+    
+    fetchUsageLimit();
   }, [status]);
   
   const isValidLength = prompt.length >= 5 && prompt.length <= 200;
-  const charCountClass = !prompt ? "text-muted-foreground" : 
-                         isValidLength ? "text-green-600" : 
-                         "text-destructive font-medium";
-  const canGenerate = status === "authenticated" && isValidLength && usageCount < usageLimit && !isGenerating;
+  const canGenerate = status === "authenticated" && isValidLength && !isGenerating && usageCount < usageLimit;
+  
+  const charCountClass = `text-xs ${
+    !prompt ? "text-muted-foreground" : 
+    prompt.length < 5 ? "text-yellow-600" : 
+    prompt.length > 200 ? "text-red-500" : 
+    "text-green-600"
+  }`;
   
   return (
-    <div className="w-full flex flex-col space-y-2">
-      <div className="w-full flex flex-col md:flex-row gap-4">
-        <div className="flex-1 w-full">
+    <div className="space-y-6">
+      <div className="space-y-4">
+        <div className="space-y-2">
           <div className="relative">
             <input
               type="text"
-              placeholder={safeT('placeholder', 'Nail design description')}
+              placeholder={t('placeholder', { defaultValue: 'Nail design description' })}
               value={prompt}
               onChange={handlePromptChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className={`w-full px-4 py-2 border rounded-md ${
+                errorMessage ? "border-red-500" : "border-input"
+              }`}
+              disabled={isGenerating}
             />
-            {prompt.length > 0 && (
-              <div className="absolute right-3 top-3">
-                <span className={`text-xs px-2 py-1 rounded-full ${
-                  isValidLength ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                }`}>
-                  {prompt.length}/200
-                </span>
-              </div>
-            )}
-          </div>
-          <div className="mt-1 text-xs flex justify-between">
-            <div className="flex items-center gap-1">
-              <Info className="w-3 h-3" />
+            <div className="absolute right-2 bottom-2">
               <span className={charCountClass}>
                 {!prompt 
-                  ? safeT('tipInput', 'Enter 5-200 characters to describe your desired nail design')
+                  ? t('tipInput', { defaultValue: 'Enter 5-200 characters to describe your desired nail design' })
                   : prompt.length < 5 
-                    ? safeT('tipNeedMore', `Need ${5 - prompt.length} more characters`, { 0: 5 - prompt.length })
+                    ? t('tipNeedMore', { defaultValue: `Need ${5 - prompt.length} more characters`, 0: 5 - prompt.length })
                     : prompt.length > 200 
-                      ? safeT('tipExceeded', `Exceeded by ${prompt.length - 200} characters`, { 0: prompt.length - 200 })
-                      : safeT('tipValid', 'Character count is valid')}
+                      ? t('tipExceeded', { defaultValue: `Exceeded by ${prompt.length - 200} characters`, 0: prompt.length - 200 })
+                      : t('tipValid', { defaultValue: 'Character count is valid' })}
               </span>
             </div>
-            {status === "authenticated" && (
-              <span className="text-muted-foreground">
-                {safeT('remaining', `Today's remaining: ${usageLimit - usageCount}/${usageLimit} times`, { 
-                  0: usageLimit - usageCount, 
-                  1: usageLimit 
-                })}
-              </span>
-            )}
           </div>
+          {status === "authenticated" && (
+            <span className="text-muted-foreground">
+              {t('remaining', { defaultValue: `Today's remaining: ${usageLimit - usageCount}/${usageLimit} times`, 0: usageLimit - usageCount, 1: usageLimit })}
+            </span>
+          )}
         </div>
         
-        {status === "authenticated" ? (
-          <button 
-            onClick={handleGenerate} 
-            className={`whitespace-nowrap px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-md transition-all ${
-              isGenerating ? "opacity-80" : "hover:opacity-95"
-            } ${!canGenerate ? "cursor-not-allowed opacity-50" : ""}`}
-            disabled={!canGenerate}
-            title={
-              !isValidLength ? safeT('errorLength', 'Prompt length must be between 5-200 characters') :
-              usageCount >= usageLimit ? safeT('errorLimit', `Each user can generate up to ${usageLimit} times per day`, { limit: usageLimit }) :
-              isGenerating ? safeT('generating', 'Generating...') : safeT('generate', 'Generate')
-            }
-          >
-            {isGenerating ? safeT('generating', 'Generating...') : safeT('generate', 'Generate')}
-          </button>
-        ) : (
-          <button 
-            onClick={handleLogin}
-            className="whitespace-nowrap px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-md transition-all flex items-center gap-2"
-          >
-            <LogIn className="w-4 h-4" />
-            <span>{safeT('login', 'Login')}</span>
-          </button>
+        {errorMessage && (
+          <div className="flex items-center gap-2 text-red-500">
+            <AlertCircle className="w-4 h-4" />
+            <span>{errorMessage}</span>
+          </div>
         )}
+        
+        <div className="flex justify-center">
+          {status === "authenticated" ? (
+            <button
+              className={`px-4 py-2 rounded-md ${
+                canGenerate
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "bg-muted text-muted-foreground cursor-not-allowed"
+              }`}
+              onClick={handleGenerate}
+              disabled={!canGenerate}
+              title={
+                !isValidLength ? t('errorLength', { defaultValue: 'Prompt length must be between 5-200 characters' }) :
+                usageCount >= usageLimit ? t('errorLimit', { defaultValue: `Each user can generate up to ${usageLimit} times per day`, limit: usageLimit }) :
+                isGenerating ? t('generating', { defaultValue: 'Generating...' }) : t('generate', { defaultValue: 'Generate' })
+              }
+            >
+              {isGenerating ? t('generating', { defaultValue: 'Generating...' }) : t('generate', { defaultValue: 'Generate' })}
+            </button>
+          ) : (
+            <button
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+              onClick={handleLogin}
+            >
+              <LogIn className="w-4 h-4" />
+              <span>{t('login', { defaultValue: 'Login' })}</span>
+            </button>
+          )}
+        </div>
       </div>
       
-      {errorMessage && (
-        <div className="flex items-start gap-2 text-sm text-destructive p-2 bg-destructive/10 rounded-md">
-          <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
-          <span>{errorMessage}</span>
-        </div>
-      )}
-      
-      {status !== "authenticated" && !errorMessage && (
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mt-2 text-sm text-amber-800">
+      {status !== "authenticated" && (
+        <div className="p-4 bg-amber-50 border border-amber-200 rounded-md">
           <div className="flex items-center gap-2">
             <Info className="w-4 h-4 text-amber-600" />
-            <span>{safeT('loginTip', 'Login to create your custom nail designs, each user can generate multiple times daily for free')}</span>
+            <span>{t('loginTip', { defaultValue: 'Login to create your custom nail designs, each user can generate multiple times daily for free' })}</span>
           </div>
         </div>
       )}

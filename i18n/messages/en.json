@@ -152,6 +152,25 @@
         "title": "Download or Share Your Design",
         "description": "Generated nail designs can be downloaded directly and will also be displayed in the latest designs for you to view anytime"
       }
+    },
+    "placeholder": "Nail design description",
+    "tipInput": "Enter 5-200 characters to describe your desired nail design",
+    "tipNeedMore": "Need {0} more characters",
+    "tipExceeded": "Exceeded by {0} characters",
+    "tipValid": "Character count is valid",
+    "remaining": "Today's remaining: {0}/{1} times",
+    "errorLength": "Prompt length must be between 5-200 characters",
+    "errorLogin": "Please login to generate nail designs",
+    "errorLimit": "Each user can generate up to {limit} times per day",
+    "generating": "Generating...",
+    "generate": "Generate",
+    "login": "Login",
+    "loginTip": "Login to create your custom nail designs, each user can generate multiple times daily for free",
+    "successAlert": "Nail design generated successfully. The page will refresh.",
+    "genericError": "Generation failed, please try again later",
+    "gallery": {
+      "title": "Recent Nail Designs",
+      "sortBy": "Sorted by creation time"
     }
   },
   "MyDesigns": {

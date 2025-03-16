@@ -139,10 +139,12 @@ export const authOptions: NextAuthConfig = {
       return baseUrl;
     },
     async session({ session, token, user }) {
-      if (token && token.user && token.user) {
+      if (token && token.user) {
+        // 使用类型断言确保TypeScript理解token.user的结构
+        const tokenUser = token.user as { uuid?: string; id?: string; [key: string]: any };
         session.user = {
           ...token.user,
-          id: token.user.uuid
+          id: tokenUser.uuid || tokenUser.id || ''
         };
       }
       return session;

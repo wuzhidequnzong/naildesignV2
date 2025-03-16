@@ -152,7 +152,22 @@
         "title": "下载或分享你的设计",
         "description": "生成的美甲设计可以直接下载，也会展示在最新设计中供你随时查看"
       }
-    }
+    },
+    "placeholder": "美甲设计描述",
+    "tipInput": "输入5-200个字符描述您想要的美甲设计",
+    "tipNeedMore": "还需要{0}个字符",
+    "tipExceeded": "超出{0}个字符",
+    "tipValid": "字符数有效",
+    "remaining": "今日剩余：{0}/{1}次",
+    "errorLength": "提示词长度必须在5-200个字符之间",
+    "errorLogin": "请登录后生成美甲设计",
+    "errorLimit": "每位用户每天最多可生成{limit}次",
+    "generating": "生成中...",
+    "generate": "生成设计",
+    "login": "登录",
+    "loginTip": "登录创建您的专属美甲设计，每位用户每天可免费生成多次",
+    "successAlert": "美甲设计生成成功，页面将刷新。",
+    "genericError": "生成失败，请稍后再试"
   },
   "MyDesigns": {
     "meta": {

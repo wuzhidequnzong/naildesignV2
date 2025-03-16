@@ -62,7 +62,9 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
-    canonical: "https://naildesigns.app",
+    alternates: {
+      canonical: "https://naildesigns.app",
+    },
   };
 }
 
