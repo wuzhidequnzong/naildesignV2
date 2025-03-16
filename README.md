@@ -1,10 +1,17 @@
-# ShipAny Template One - 美甲设计生成器 v1.3.3
+# ShipAny Template One - 美甲设计生成器 v1.3.4
 
 基于ShipAny模板开发的AI美甲设计生成器，使用AI技术生成专业美甲设计图片。
 
 ![preview](preview.png)
 
 ## 版本更新历史
+
+### v1.3.4 (2024-06-25)
+- 🛠️ 修复构建错误，确保项目可以成功部署到Vercel
+- 🌐 统一国际化翻译方式，使用next-intl标准方法
+- 🔄 修复NailDesignGenerator组件的翻译实现
+- 🧩 修复auth配置中的类型错误，增强类型安全性
+- 📦 添加缺失的依赖：date-fns和@playwright/test
 
 ### v1.3.3 (2024-06-24)
 - 🔍 全面优化网站SEO，提升搜索引擎曝光度
