@@ -9,23 +9,39 @@
  * @returns 完整的美甲设计提示词
  */
 export function createNailDesignPrompt(userPrompt: string): string {
-  return `Generate a professional nail art display showing EXACTLY 10 nail tips arranged in TWO ROWS with EXACTLY 5 TIPS PER ROW.
+  return `Generate a professional nail art display showing EXACTLY 5 detached nail tips in ONE SINGLE ROW - NO MORE, NO LESS.
+
+CRITICAL COUNT REQUIREMENT:
+- EXACTLY 5 nail tips total - COUNT CAREFULLY
+- ABSOLUTELY NO ADDITIONAL NAILS beyond these 5
+
+SPECIFIC NAIL IDENTIFICATION:
+- From left to right: thumb, index finger, middle finger, ring finger, and pinky finger
+- Each nail must be clearly distinguishable by its appropriate width and shape:
+  * Thumb nail: widest
+  * Index nail: second widest
+  * Middle nail: medium width
+  * Ring nail: slightly narrower
+  * Pinky nail: narrowest
 
 CRITICAL LAYOUT REQUIREMENTS:
-- TOP ROW: EXACTLY 5 nail tips representing one complete hand
-- BOTTOM ROW: EXACTLY 5 nail tips representing the other hand
-- TOTAL COUNT: EXACTLY 10 nail tips in the entire image
-- Arrange in a clean grid pattern with clear separation between rows
-- Each row must be visually distinct and aligned horizontally
-- Maintain appropriate width proportions (wider thumb, narrower pinky)
+- Arrange in ONE SINGLE HORIZONTAL ROW only
+- NO FINGERS OR HANDS should be visible - only the detached nail tips
+- Perfect alignment with even spacing between each nail
+- Each nail tip should be the same distance from its neighbors
+- Clean, uncluttered composition with ONLY 5 nails visible
 
 TECHNICAL SPECIFICATIONS:
 - Professional studio-quality lighting
 - High-resolution detail of nail art
 - Clear visibility of all design elements
 - Realistic glossy finish
+- Clean, minimalist presentation on a plain background
 
-FINAL VERIFICATION: COUNT AGAIN to ensure exactly 5 tips in top row and 5 tips in bottom row.
+FINAL VERIFICATION: 
+- COUNT ONE MORE TIME to confirm EXACTLY 5 detached nail tips are shown
+- Verify the nails represent thumb, index, middle, ring, and pinky in correct order
+- Ensure NO ADDITIONAL NAILS appear anywhere in the image
 
 USER DESIGN SPECIFICATIONS:
 ${userPrompt}`;
