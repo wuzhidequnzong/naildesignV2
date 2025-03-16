@@ -29,6 +29,40 @@ export async function generateMetadata({
     },
     description: t("metadata.description") || "",
     keywords: t("metadata.keywords") || "",
+    metadataBase: new URL("https://naildesigns.app"),
+    openGraph: {
+      title: t("metadata.title") || "",
+      description: t("metadata.description") || "",
+      url: "https://naildesigns.app",
+      siteName: "Nail Designs",
+      locale: locale,
+      type: "website",
+      images: [
+        {
+          url: "/logo.png",
+          width: 512,
+          height: 512,
+          alt: "Nail Designs AI Generator",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("metadata.title") || "",
+      description: t("metadata.description") || "",
+      images: ["/logo.png"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    canonical: "https://naildesigns.app",
   };
 }
 

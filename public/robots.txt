@@ -1,4 +1,7 @@
 User-agent: *
+Allow: /
 Disallow: /*?*q=
-Disallow: /privacy-policy
-Disallow: /terms-of-service
+Disallow: /api/
+Disallow: /dashboard/
+
+Sitemap: https://naildesigns.app/sitemap.xml

@@ -1,5 +1,5 @@
 {
-  "template": "shipany-template-one",
+  "template": "nail-design-one",
   "theme": "light",
   "header": {
     "brand": {
@@ -702,7 +702,7 @@
         {
           "title": "邮箱",
           "icon": "RiMailLine",
-          "url": "mailto:hello@naildesigns.site",
+          "url": "mailto:wuzhidequnzong@gmail.com",
           "target": "_self",
           "visible": false
         }

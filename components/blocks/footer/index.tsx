@@ -37,7 +37,7 @@ export default function Footer({ footer }: { footer: FooterType }) {
               )}
               {footer.social && (
                 <ul className="flex items-center space-x-6 text-muted-foreground">
-                  {footer.social.items?.filter(item => item.visible !== false).map((item, i) => (
+                  {footer.social.items?.map((item, i) => (
                     <li key={i} className="font-medium hover:text-primary">
                       <a href={item.url} target={item.target}>
                         {item.icon && (
@@ -72,11 +72,11 @@ export default function Footer({ footer }: { footer: FooterType }) {
                 {footer.copyright}
                 {process.env.NEXT_PUBLIC_SHOW_POWERED_BY === "false" ? null : (
                   <a
-                    href="https://shipany.ai"
+                    href="https://naildesigns.site"
                     target="_blank"
                     className="px-2 text-primary"
                   >
-                    build with ShipAny
+                    build with Nail Designs
                   </a>
                 )}
               </p>

@@ -22,10 +22,10 @@ export default async function AdminLayout({
 
   const sidebar: Sidebar = {
     brand: {
-      title: "ShipAny",
+      title: "Nail Designs",
       logo: {
         src: "/logo.png",
-        alt: "ShipAny",
+        alt: "Nail Designs",
       },
       url: "/admin",
     },
@@ -76,7 +76,7 @@ export default async function AdminLayout({
         },
         {
           title: "X",
-          url: "https://x.com/shipanyai",
+          url: "https://x.com/yige9313240?s=21",
           target: "_blank",
           icon: "RiTwitterLine",
         },

@@ -1,7 +1,33 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://shipany.ai/</loc>
-    <lastmod>2024-12-24T10:00:00+00:00</lastmod>
+    <loc>https://naildesigns.app/</loc>
+    <lastmod>2024-03-15T10:00:00+00:00</lastmod>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://naildesigns.app/blog</loc>
+    <lastmod>2024-03-15T10:00:00+00:00</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://naildesigns.app/about</loc>
+    <lastmod>2024-03-15T10:00:00+00:00</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://naildesigns.app/privacy-policy</loc>
+    <lastmod>2024-03-15T10:00:00+00:00</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://naildesigns.app/terms-of-service</loc>
+    <lastmod>2024-03-15T10:00:00+00:00</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>
