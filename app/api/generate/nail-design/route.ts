@@ -2,10 +2,10 @@ import { experimental_generateImage as generateImage } from "ai";
 import { replicate } from "@ai-sdk/replicate";
 import { auth } from "@/auth";
 import { newStorage } from "@/lib/storage";
-import { checkUserUsageLimit, updateUserUsage } from "@/models/userUsageLimit";
 import { insertNailDesign } from "@/models/nailDesign";
 import { createNailDesignPrompt, validatePromptLength } from "@/lib/prompt-template";
 import { randomUUID } from "crypto";
+import { getUserCredits, decreaseCredits, CreditsTransType } from "@/services/credit";
 
 /**
  * 美甲设计生成API
@@ -41,14 +41,14 @@ export async function POST(req: Request) {
     }
     console.log('提示词验证通过');
     
-    // 检查用户使用限制
-    console.log(`检查用户(${user_uuid})使用限制...`);
-    const canGenerate = await checkUserUsageLimit(user_uuid);
-    if (!canGenerate) {
-      console.error(`API调用失败: 用户(${user_uuid})已达到今日生成次数限制`);
-      return Response.json({ error: "今日生成次数已用完" }, { status: 403 });
+    // 检查用户积分是否足够
+    console.log(`检查用户(${user_uuid})积分...`);
+    const userCredits = await getUserCredits(user_uuid);
+    if (userCredits.left_credits <= 0) {
+      console.error(`API调用失败: 用户(${user_uuid})积分不足`);
+      return Response.json({ error: "积分不足，请充值" }, { status: 403 });
     }
-    console.log('用户使用限制检查通过');
+    console.log(`用户积分检查通过，剩余积分: ${userCredits.left_credits}`);
     
     // 组合完整提示词
     const fullPrompt = createNailDesignPrompt(prompt);
@@ -110,10 +110,14 @@ export async function POST(req: Request) {
     });
     console.log(`设计已保存到数据库，ID: ${design.id}`);
     
-    // 更新用户使用次数
-    console.log(`更新用户(${user_uuid})使用次数...`);
-    await updateUserUsage(user_uuid);
-    console.log('用户使用次数已更新');
+    // 消耗用户积分
+    console.log(`消耗用户(${user_uuid})积分...`);
+    await decreaseCredits({
+      user_uuid,
+      trans_type: CreditsTransType.Ping,
+      credits: 1 // 每次生成消耗1积分
+    });
+    console.log('用户积分已消耗');
     
     // 返回结果
     console.log('------- 美甲设计生成请求完成 -------');

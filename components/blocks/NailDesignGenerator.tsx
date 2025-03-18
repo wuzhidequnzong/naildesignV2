@@ -47,9 +47,9 @@ export default function NailDesignGenerator() {
       return;
     }
     
-    if (usageCount >= usageLimit) {
-      setErrorMessage(t('errorLimit', { defaultValue: `Each user can generate up to ${usageLimit} times per day`, limit: usageLimit }));
-      console.error(`Generation failed: User exceeded usage limit (used: ${usageCount}, limit: ${usageLimit})`);
+    if (usageLimit <= 0) {
+      setErrorMessage(t('errorLimit', { defaultValue: 'Insufficient credits. Please recharge.' }));
+      console.error(`Generation failed: User has no credits (available: ${usageLimit})`);
       return;
     }
     
@@ -75,7 +75,8 @@ export default function NailDesignGenerator() {
       
       console.log("Generation successful, image URL:", data.image_url);
       
-      setUsageCount(prev => prev + 1);
+      // 生成成功，减少显示的可用积分
+      setUsageLimit(prev => prev - 1);
       
       alert(t('successAlert', { defaultValue: 'Nail design generated successfully. The page will refresh.' }));
       
@@ -89,26 +90,27 @@ export default function NailDesignGenerator() {
   };
   
   useEffect(() => {
-    const fetchUsageLimit = async () => {
+    const fetchUserCredits = async () => {
       if (status === "authenticated") {
         try {
-          const response = await fetch("/api/user/usage-limits");
+          // 使用新的积分API替代原有的使用次数限制API
+          const response = await fetch("/api/user/credits");
           if (response.ok) {
             const data = await response.json();
-            setUsageCount(data.used || 0);
-            setUsageLimit(data.limit || 5);
+            setUsageCount(0); // 不再使用已用次数的概念
+            setUsageLimit(data.limit || 0); // 设置可用积分
           }
         } catch (error) {
-          console.error("Failed to fetch usage limits:", error);
+          console.error("Failed to fetch user credits:", error);
         }
       }
     };
     
-    fetchUsageLimit();
+    fetchUserCredits();
   }, [status]);
   
   const isValidLength = prompt.length >= 5 && prompt.length <= 200;
-  const canGenerate = status === "authenticated" && isValidLength && !isGenerating && usageCount < usageLimit;
+  const canGenerate = status === "authenticated" && isValidLength && !isGenerating && usageLimit > 0;
   
   const charCountClass = `text-xs ${
     !prompt ? "text-muted-foreground" : 
@@ -146,7 +148,10 @@ export default function NailDesignGenerator() {
           </div>
           {status === "authenticated" && (
             <span className="text-muted-foreground">
-              {t('remaining', { defaultValue: `Today's remaining: ${usageLimit - usageCount}/${usageLimit} times`, 0: usageLimit - usageCount, 1: usageLimit })}
+              {t('remaining', { defaultValue: `Credits: ${usageLimit}`, 0: usageLimit, 1: usageLimit })}
+              <span className="text-xs ml-1 text-muted-foreground">
+                {t('tipCredit', { defaultValue: "1 credit = 1 generation" })}
+              </span>
             </span>
           )}
         </div>
@@ -155,6 +160,20 @@ export default function NailDesignGenerator() {
           <div className="flex items-center gap-2 text-red-500">
             <AlertCircle className="w-4 h-4" />
             <span>{errorMessage}</span>
+          </div>
+        )}
+        
+        {errorMessage && errorMessage.includes(t('errorLimit', { defaultValue: 'Insufficient credits' }).substring(0, 10)) && (
+          <div className="p-3 bg-amber-50 border border-amber-200 rounded-md text-center">
+            <p className="text-sm text-amber-800 mb-2">
+              {t('rechargeMessage', { defaultValue: "Please recharge to continue generating nail designs." })}
+            </p>
+            <Link 
+              href="/#pricing" 
+              className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded-md hover:bg-primary/90 inline-block"
+            >
+              {t('rechargeButton', { defaultValue: "Recharge Now" })}
+            </Link>
           </div>
         )}
         
@@ -170,7 +189,7 @@ export default function NailDesignGenerator() {
               disabled={!canGenerate}
               title={
                 !isValidLength ? t('errorLength', { defaultValue: 'Prompt length must be between 5-200 characters' }) :
-                usageCount >= usageLimit ? t('errorLimit', { defaultValue: `Each user can generate up to ${usageLimit} times per day`, limit: usageLimit }) :
+                usageLimit <= 0 ? t('errorLimit', { defaultValue: 'Insufficient credits. Please recharge.' }) :
                 isGenerating ? t('generating', { defaultValue: 'Generating...' }) : t('generate', { defaultValue: 'Generate' })
               }
             >

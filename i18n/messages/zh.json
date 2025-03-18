@@ -146,7 +146,7 @@
       },
       "step2": {
         "title": "点击生成按钮",
-        "description": "AI将根据你的描述生成专业的美甲设计图，每位用户每天可免费生成5次"
+        "description": "AI将根据你的描述生成专业的美甲设计图，使用积分即可生成设计图"
       },
       "step3": {
         "title": "下载或分享你的设计",
@@ -158,16 +158,19 @@
     "tipNeedMore": "还需要{0}个字符",
     "tipExceeded": "超出{0}个字符",
     "tipValid": "字符数有效",
-    "remaining": "今日剩余：{0}/{1}次",
+    "remaining": "积分：{0}",
     "errorLength": "提示词长度必须在5-200个字符之间",
     "errorLogin": "请登录后生成美甲设计",
-    "errorLimit": "每位用户每天最多可生成{limit}次",
+    "errorLimit": "积分不足，请充值",
     "generating": "生成中...",
     "generate": "生成设计",
     "login": "登录",
     "loginTip": "登录创建您的专属美甲设计，每位用户每天可免费生成多次",
     "successAlert": "美甲设计生成成功，页面将刷新。",
-    "genericError": "生成失败，请稍后再试"
+    "genericError": "生成失败，请稍后再试",
+    "tipCredit": "1积分 = 1次生成",
+    "rechargeMessage": "请充值积分继续生成美甲设计",
+    "rechargeButton": "立即充值"
   },
   "MyDesigns": {
     "meta": {

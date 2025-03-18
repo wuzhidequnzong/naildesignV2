@@ -1,10 +1,18 @@
-# ShipAny Template One - 美甲设计生成器 v1.3.5
+# ShipAny Template One - 美甲设计生成器 v1.4.0
 
 基于ShipAny模板开发的AI美甲设计生成器，使用AI技术生成专业美甲设计图片。
 
 ![preview](preview.png)
 
 ## 版本更新历史
+
+### v1.4.0 (2024-07-16)
+- 🔄 统一资源计数系统，将每日使用次数限制改为积分系统
+- 💳 优化支付流程，支付成功后自动增加用户积分
+- 🛠️ 修复支付成功后积分显示问题，确保积分立即更新
+- 🌐 更新国际化文本，适配积分系统相关UI元素
+- 📊 改进消费逻辑，每次生成消耗1积分
+- 🧮 添加积分不足提示和充值入口
 
 ### v1.3.5 (2024-06-27)
 - 🎨 优化AI提示词模板，改进美甲设计生成效果
@@ -79,6 +87,7 @@
 - ✅ **界面精简**：隐藏部分导航选项和非核心功能组件，简化用户界面
 - ✅ **首页布局优化**：改进Hero区域和美甲生成器的视觉关系，调整组件间距，营造更直观的用户体验
 - ✅ **SEO优化**：更新元数据信息，添加社交媒体标签，优化爬虫控制，扩展网站地图
+- ✅ **支付与积分系统**：完成支付集成，优化积分消费逻辑，统一资源计数系统
 - ⏳ **主题适配**：待完成按钮和UI元素的主题色适配
 - ⏳ **权限管理**：待完成设计查看权限的优化，允许非登录用户查看设计列表
 
@@ -86,7 +95,8 @@
 
 - 🎨 **AI美甲设计生成**：利用最先进的AI模型生成专业的美甲设计图片
 - 🖼️ **标准化展示**：所有生成的美甲设计都按照5个指甲（单行排列）的标准格式展示，符合真实指甲比例
-- 🔄 **每日生成限制**：每位用户每天可免费生成5次
+- 💰 **积分系统**：实现积分消费模式，每次生成消耗1积分
+- 💳 **支付集成**：集成Stripe支付，支付成功自动增加用户积分
 - 📱 **响应式界面**：完美适配各种设备屏幕
 - 🌐 **多语言支持**：支持中文和英文界面
 - 👤 **用户管理**：包含用户登录和个人设计管理功能
@@ -96,17 +106,20 @@
 
 - **数据库模型**
   - `nail_designs`：存储生成的美甲设计图片信息
-  - `user_usage_limits`：管理用户的每日使用限制
+  - `credits`：管理用户积分系统
+  - `orders`：管理支付订单
 
 - **核心模块**
   - 提示词处理：`lib/prompt-template.ts`
-  - 数据操作：`models/nailDesign.ts` 和 `models/userUsageLimit.ts`
-  - API端点：`app/api/generate/nail-design`、`app/api/nail-designs`、`app/api/user/usage-limits`
+  - 数据操作：`models/nailDesign.ts` 和 `models/credit.ts`
+  - API端点：`app/api/generate/nail-design`、`app/api/nail-designs`、`app/api/user/credits`
+  - 支付处理：`app/api/checkout`、`app/[locale]/pay-success/[session_id]/page.tsx`
 
 - **UI组件**
   - 生成器：`components/blocks/NailDesignGenerator.tsx`
   - 展示画廊：`components/blocks/NailDesignGallery.tsx`
   - 首页介绍：`components/blocks/NailDesignIntro.tsx`
+  - 价格表：`components/blocks/pricing/index.tsx`
 
 - **国际化**
   - 全局翻译：`i18n/messages/[locale].json` - 包含全局UI元素的翻译
@@ -117,6 +130,7 @@
   - 主页：`app/[locale]/(default)/page.tsx`
   - 美甲设计页：`app/[locale]/(default)/nail-design/page.tsx`
   - 我的设计：`app/[locale]/(default)/(console)/my-designs/page.tsx`
+  - 我的积分：`app/[locale]/(default)/(console)/my-credits/page.tsx`
   - 法律文档：`app/(legal)/privacy-policy/page.mdx`、`app/(legal)/terms-of-service/page.mdx`
 
 ## 快速开始
@@ -151,11 +165,11 @@ pnpm dev
 
 ## 使用说明
 
-1. 访问首页，点击"美甲设计"导航项
-2. 在设计页面中输入您想要的美甲设计描述（5-200字符）
-3. 点击"生成设计"按钮
-4. 等待几秒钟，AI将生成您的美甲设计
-5. 生成的设计会显示在页面底部，您可以下载或查看详情
+1. 访问首页，在美甲设计生成器中输入您想要的美甲设计描述（5-200字符）
+2. 点击"生成设计"按钮
+3. 等待几秒钟，AI将生成您的美甲设计
+4. 生成的设计会显示在页面底部，您可以下载或查看详情
+5. 每次生成消耗1积分，积分不足时可在价格表中充值
 
 ## 部署
 
@@ -187,6 +201,7 @@ npm run cf:deploy
 - **AI**：Replicate API、black-forest-labs/flux-dev模型
 - **存储**：Cloudflare R2
 - **认证**：NextAuth.js
+- **支付**：Stripe
 - **国际化**：Next-intl、date-fns本地化
 
 ## 社区

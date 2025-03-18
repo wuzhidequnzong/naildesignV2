@@ -115,42 +115,42 @@
   },
   "NailDesign": {
     "meta": {
-      "title": "AI Nail Design Generator - Create Professional Nail Art Easily",
-      "description": "Generate professional nail designs using AI technology. Simply input your description and instantly create beautiful nail art displays"
+      "title": "AI Nail Design Generator - Create Professional Nail Designs Easily",
+      "description": "Generate professional nail designs using AI technology. Simply enter a description and instantly get beautiful nail art visualizations."
     },
     "hero": {
       "title": "AI Nail Design Generator",
-      "description": "Enter your desired nail style, and AI will instantly create professional nail designs for you"
+      "description": "Enter your desired nail style, and AI will instantly create professional nail designs for you."
     },
     "gallery": {
       "title": "Latest Nail Designs",
-      "sortBy": "Sorted by creation time",
+      "sortBy": "Sort by creation time",
       "loadMore": "Load More",
       "loading": "Loading...",
-      "empty": "No nail designs yet. Be the first to create one!",
+      "empty": "No nail designs available. Be the first to create one!",
       "emptyUser": "You haven't created any nail designs yet",
       "createFirstTip": "Click the generate button above to create your first design",
-      "loginTip": "Login to create your own nail designs",
-      "viewOriginal": "View original image",
-      "downloadImage": "Download image",
+      "loginTip": "Log in to create your own nail designs",
+      "viewOriginal": "View Original",
+      "downloadImage": "Download Image",
       "reloadButton": "Reload",
       "downloadFailure": "Download failed, please try again later",
       "networkError": "Network error, please try again later",
-      "fetchError": "Failed to fetch designs"
+      "fetchError": "Failed to fetch design list"
     },
     "howto": {
       "title": "How to Use",
       "step1": {
-        "title": "Describe Your Desired Nail Design",
-        "description": "Input descriptions of the nail style, colors, patterns, etc. you want. For example: Blue gradient with gold stars, French manicure style"
+        "title": "Describe your desired nail design",
+        "description": "Enter the nail style, colors, patterns you want, e.g., 'blue gradient with gold stars, French manicure style'"
       },
       "step2": {
-        "title": "Click Generate Button",
-        "description": "AI will generate professional nail design images based on your description. Each user can generate 5 times per day for free"
+        "title": "Click Generate",
+        "description": "AI will create a professional nail design based on your description. Each user can generate designs with available credits"
       },
       "step3": {
-        "title": "Download or Share Your Design",
-        "description": "Generated nail designs can be downloaded directly and will also be displayed in the latest designs for you to view anytime"
+        "title": "Download or share your design",
+        "description": "The generated nail design can be downloaded directly and will be displayed in the latest designs for you to view anytime"
       }
     },
     "placeholder": "Nail design description",
@@ -158,20 +158,19 @@
     "tipNeedMore": "Need {0} more characters",
     "tipExceeded": "Exceeded by {0} characters",
     "tipValid": "Character count is valid",
-    "remaining": "Today's remaining: {0}/{1} times",
+    "remaining": "Credits: {0}",
     "errorLength": "Prompt length must be between 5-200 characters",
     "errorLogin": "Please login to generate nail designs",
-    "errorLimit": "Each user can generate up to {limit} times per day",
+    "errorLimit": "Insufficient credits. Please recharge.",
     "generating": "Generating...",
     "generate": "Generate",
     "login": "Login",
     "loginTip": "Login to create your custom nail designs, each user can generate multiple times daily for free",
     "successAlert": "Nail design generated successfully. The page will refresh.",
     "genericError": "Generation failed, please try again later",
-    "gallery": {
-      "title": "Recent Nail Designs",
-      "sortBy": "Sorted by creation time"
-    }
+    "tipCredit": "1 credit = 1 generation",
+    "rechargeMessage": "Please recharge to continue generating nail designs.",
+    "rechargeButton": "Recharge Now"
   },
   "MyDesigns": {
     "meta": {
