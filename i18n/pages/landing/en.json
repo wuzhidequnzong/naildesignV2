@@ -371,105 +371,117 @@
   },
   "pricing": {
     "name": "pricing",
-    "label": "Pricing",
-    "title": "Pricing",
-    "description": "Start designing your perfect nails today.",
-    "groups": [],
+    "title": "Choose Your Plan",
+    "description": "Find the perfect match for your needs.",
+    "button": {
+      "title": "Start Free",
+      "url": "/",
+      "title2": "Upgrade Plan",
+      "url2": "/"
+    },
+    "groups": [
+      {
+        "title": "Personal",
+        "key": "personal"
+      },
+      {
+        "title": "Business",
+        "key": "business"
+      }
+    ],
     "items": [
       {
-        "title": "Free Plan",
-        "description": "Perfect for trying out the service.",
+        "title": "Free",
+        "description": "Perfect for those trying AI nail design for the first time.",
         "features_title": "Includes",
         "features": [
-          "5 free designs daily",
+          "5 initial credits",
+          "Standard nail design format",
           "Basic prompt options",
-          "Standard resolution designs",
-          "Save designs to your library",
-          "Access to trending designs",
-          "Mobile and desktop access"
+          "Standard resolution",
+          "Save to personal collection",
+          "Watermarked downloads"
         ],
-        "interval": "monthly",
+        "interval": "one-time",
         "amount": 0,
         "cn_amount": 0,
         "currency": "USD",
         "price": "Free",
-        "original_price": "",
-        "unit": "USD",
+        "unit": "",
         "is_featured": false,
-        "tip": "No credit card required!",
         "button": {
           "title": "Get Started",
-          "url": "/nail-design",
+          "url": "/",
           "icon": "RiFlashlightFill"
         },
         "product_id": "free",
-        "product_name": "Nail Designs Free Plan",
+        "product_name": "Nail Design Free",
         "credits": 5,
         "valid_months": 1
       },
       {
         "title": "Premium",
-        "description": "For nail enthusiasts who want more.",
+        "description": "For nail enthusiasts who want more features.",
         "label": "Popular",
         "features_title": "Everything in Free, plus",
         "features": [
-          "Unlimited designs",
+          "300 credits per month",
           "Advanced prompt options",
           "High-resolution designs",
           "Priority generation",
-          "Download in multiple formats",
+          "Multiple format downloads",
           "No watermarks",
-          "Premium customer support"
+          "Premium support"
         ],
-        "interval": "monthly",
-        "amount": 1490,
-        "cn_amount": 9900,
+        "interval": "month",
+        "amount": 1990,
+        "cn_amount": 13900,
         "currency": "USD",
-        "price": "$14.90",
-        "original_price": "$19.99",
+        "price": "$19.9",
+        "original_price": "$24.99",
         "unit": "USD",
         "is_featured": true,
         "tip": "Most popular choice!",
         "button": {
-          "title": "Go Premium",
+          "title": "Upgrade to Premium",
           "url": "/#pricing",
           "icon": "RiFlashlightFill"
         },
         "product_id": "premium",
-        "product_name": "Nail Designs Premium Plan",
-        "credits": 999,
+        "product_name": "Nail Design Premium",
+        "credits": 300,
         "valid_months": 1
       },
       {
         "title": "Professional",
-        "description": "For nail artists and salons.",
+        "description": "For nail technicians and nail salons.",
         "features_title": "Everything in Premium, plus",
         "features": [
+          "1,200 credits per month",
+          "Highest priority generation queue",
           "Commercial usage rights",
-          "Bulk design generation",
           "Client management tools",
           "Custom branding options",
-          "API access",
           "Dedicated account manager",
           "Early access to new features"
         ],
-        "interval": "monthly",
-        "amount": 4990,
-        "cn_amount": 29900,
+        "interval": "month",
+        "amount": 5990,
+        "cn_amount": 41900,
         "currency": "USD",
-        "price": "$49.90",
-        "original_price": "$69.99",
+        "price": "$59.9",
+        "original_price": "$79.99",
         "unit": "USD",
         "is_featured": false,
-        "tip": "Perfect for nail professionals!",
+        "tip": "Perfect choice for nail professionals!",
         "button": {
           "title": "Get Professional",
           "url": "/#pricing",
           "icon": "RiFlashlightFill"
         },
         "product_id": "professional",
-        "product_name": "Nail Designs Professional Plan",
-        "credits": 9999,
+        "product_name": "Nail Design Professional",
+        "credits": 1200,
         "valid_months": 1
       }
     ]
@@ -729,15 +741,18 @@
       "login": "Login",
       "errorLength": "Prompt length must be between 5-200 characters",
       "errorLogin": "Please login to generate nail designs",
-      "errorLimit": "Each user can generate up to {limit} times per day",
+      "errorLimit": "Insufficient credits. Please recharge.",
       "tipInput": "Enter 5-200 characters to describe your desired nail design",
       "tipNeedMore": "Need {0} more characters",
       "tipExceeded": "Exceeded by {0} characters",
       "tipValid": "Character count is valid",
-      "remaining": "Today's remaining: {0}/{1} times",
-      "loginTip": "Login to create your custom nail designs, each user can generate multiple times daily for free",
+      "remaining": "Credits: {0}",
+      "loginTip": "Login to create your custom nail designs, each user gets free credits",
       "successAlert": "Nail design generated successfully. The page will refresh.",
-      "genericError": "Generation failed, please try again later"
+      "genericError": "Generation failed, please try again later",
+      "tipCredit": "1 credit = 1 generation",
+      "rechargeMessage": "Please recharge to continue generating nail designs.",
+      "rechargeButton": "Recharge Now"
     }
   }
 }

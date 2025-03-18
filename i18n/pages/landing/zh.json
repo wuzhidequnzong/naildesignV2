@@ -371,35 +371,47 @@
   },
   "pricing": {
     "name": "pricing",
-    "label": "定价",
-    "title": "定价",
-    "description": "今天就开始设计您的完美美甲。",
-    "groups": [],
+    "title": "选择适合您的方案",
+    "description": "为您的需求找到完美匹配的方案。",
+    "button": {
+      "title": "免费开始",
+      "url": "/",
+      "title2": "升级方案",
+      "url2": "/"
+    },
+    "groups": [
+      {
+        "title": "个人",
+        "key": "personal"
+      },
+      {
+        "title": "企业",
+        "key": "business"
+      }
+    ],
     "items": [
       {
         "title": "免费版",
-        "description": "适合初次尝试服务。",
-        "features_title": "包含",
+        "description": "适合初次尝试AI美甲设计的用户。",
+        "features_title": "包含以下功能",
         "features": [
-          "每日5次免费设计",
+          "5积分初始额度",
+          "标准格式美甲设计",
           "基础提示词选项",
-          "标准分辨率设计",
-          "保存设计到图库",
-          "访问流行设计",
-          "移动和桌面端访问"
+          "标准分辨率",
+          "保存到个人收藏",
+          "带水印下载"
         ],
-        "interval": "monthly",
+        "interval": "one-time",
         "amount": 0,
         "cn_amount": 0,
         "currency": "USD",
         "price": "免费",
-        "original_price": "",
-        "unit": "USD",
+        "unit": "",
         "is_featured": false,
-        "tip": "无需信用卡！",
         "button": {
           "title": "立即开始",
-          "url": "/nail-design",
+          "url": "/",
           "icon": "RiFlashlightFill"
         },
         "product_id": "free",
@@ -413,7 +425,7 @@
         "label": "热门",
         "features_title": "包含免费版所有功能，另加",
         "features": [
-          "无限设计次数",
+          "每月300积分",
           "高级提示词选项",
           "高分辨率设计",
           "优先生成",
@@ -421,12 +433,12 @@
           "无水印",
           "高级客户支持"
         ],
-        "interval": "monthly",
-        "amount": 1490,
-        "cn_amount": 9900,
+        "interval": "month",
+        "amount": 1990,
+        "cn_amount": 13900,
         "currency": "USD",
-        "price": "$14.90",
-        "original_price": "$19.99",
+        "price": "$19.9",
+        "original_price": "$24.99",
         "unit": "USD",
         "is_featured": true,
         "tip": "最受欢迎选择！",
@@ -437,7 +449,7 @@
         },
         "product_id": "premium",
         "product_name": "美甲设计高级版",
-        "credits": 999,
+        "credits": 300,
         "valid_months": 1
       },
       {
@@ -445,20 +457,20 @@
         "description": "适合美甲师和美甲沙龙。",
         "features_title": "包含高级版所有功能，另加",
         "features": [
+          "每月1200积分",
+          "最高优先级生成队列",
           "商业使用权",
-          "批量设计生成",
           "客户管理工具",
           "自定义品牌选项",
-          "API访问",
           "专属客户经理",
           "新功能早期访问"
         ],
-        "interval": "monthly",
-        "amount": 4990,
-        "cn_amount": 29900,
+        "interval": "month",
+        "amount": 5990,
+        "cn_amount": 41900,
         "currency": "USD",
-        "price": "$49.90",
-        "original_price": "$69.99",
+        "price": "$59.9",
+        "original_price": "$79.99",
         "unit": "USD",
         "is_featured": false,
         "tip": "美甲专业人士的完美选择！",
@@ -469,7 +481,7 @@
         },
         "product_id": "professional",
         "product_name": "美甲设计专业版",
-        "credits": 9999,
+        "credits": 1200,
         "valid_months": 1
       }
     ]
@@ -729,15 +741,18 @@
       "login": "登录",
       "errorLength": "提示词长度必须在5-200字符之间",
       "errorLogin": "请先登录账号才能生成美甲设计",
-      "errorLimit": "每位用户每天最多生成{limit}次",
+      "errorLimit": "积分不足，请充值",
       "tipInput": "输入5-200个字符描述你想要的美甲设计",
       "tipNeedMore": "还需要输入{0}个字符",
       "tipExceeded": "超出{0}个字符",
       "tipValid": "字数符合要求",
-      "remaining": "今日剩余: {0}/{1} 次",
-      "loginTip": "登录后即可创建专属美甲设计，每位用户每天可免费生成多次",
+      "remaining": "积分：{0}",
+      "loginTip": "登录后即可创建专属美甲设计，每位用户都有免费积分",
       "successAlert": "美甲设计已生成成功，页面将自动刷新",
-      "genericError": "生成失败，请稍后重试"
+      "genericError": "生成失败，请稍后重试",
+      "tipCredit": "1积分 = 1次生成",
+      "rechargeMessage": "请充值积分继续生成美甲设计",
+      "rechargeButton": "立即充值"
     }
   }
 }
