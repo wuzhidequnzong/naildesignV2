@@ -29,11 +29,11 @@ export async function generateMetadata({
     },
     description: t("metadata.description") || "",
     keywords: t("metadata.keywords") || "",
-    metadataBase: new URL("https://naildesigns.app"),
+    metadataBase: new URL("https://naildesigns.site"),
     openGraph: {
       title: t("metadata.title") || "",
       description: t("metadata.description") || "",
-      url: "https://naildesigns.app",
+      url: "https://naildesigns.site",
       siteName: "Nail Designs",
       locale: locale,
       type: "website",
@@ -63,7 +63,7 @@ export async function generateMetadata({
       },
     },
     alternates: {
-      canonical: "https://naildesigns.app",
+      canonical: "https://naildesigns.site",
     },
   };
 }
