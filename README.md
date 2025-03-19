@@ -1,10 +1,16 @@
-# ShipAny Template One - 美甲设计生成器 v1.4.0
+# ShipAny Template One - 美甲设计生成器 v1.4.1
 
 基于ShipAny模板开发的AI美甲设计生成器，使用AI技术生成专业美甲设计图片。
 
 ![preview](preview.png)
 
 ## 版本更新历史
+
+### v1.4.1 (2024-07-17)
+- 🌐 修复域名信息，将所有naildesigns.app更新为naildesigns.site
+- 🗺️ 优化网站地图(sitemap.xml)，移除不存在的页面链接
+- 🔄 确保网站SEO元数据中的域名一致性
+- 🔍 提高搜索引擎对网站的索引准确性
 
 ### v1.4.0 (2024-07-16)
 - 🔄 统一资源计数系统，将每日使用次数限制改为积分系统
